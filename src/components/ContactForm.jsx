@@ -2,11 +2,12 @@ import React from "react";
 import { MdFileDownload } from "react-icons/md";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
+// import { FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaEnvelope } from 'react-icons/fa';
 
 const ContactForm = () => {
-    const downloadFile = () => {
+  const downloadFile = () => {
     const fileUrl = `/Dharaneeswar Reddy Resume.pdf`; // Export as PPTX
     const anchor = document.createElement("a");
     anchor.href = fileUrl;
@@ -62,7 +63,10 @@ const ContactForm = () => {
           </form>
         </div>
         <div className="bg-gray-900 p-7 rounded-lg h-[250px] md:w-[500px]">
-          <div onClick={downloadFile} className="cv bg-[#55e6a5] text-black p-[20px_30px] mr-[20px] w-full hover:bg-[#141c27] hover:text-white flex gap-2 items-center justify-center transition-all ease-linear duration-300">
+          <div
+            onClick={downloadFile}
+            className="cv bg-[#55e6a5] text-black p-[20px_30px] mr-[20px] w-full hover:bg-[#141c27] hover:text-white flex gap-2 items-center justify-center transition-all ease-linear duration-300"
+          >
             <span className="whitespace-nowrap">Download CV</span>{" "}
             <span className="text-lg">
               <MdFileDownload />
@@ -70,24 +74,34 @@ const ContactForm = () => {
           </div>
           <div className="social-media">
             <h2 className="text-white text-2xl mt-4">Contact</h2>
-            <div className="icons text-white text-3xl md:text-5xl mt-5 flex justify-around flex-wrap" >
-              <div className="flex flex-col">
+            <div className="icons text-white text-3xl md:text-5xl mt-5 flex justify-around flex-wrap">
+              <a
+                href="https://github.com/Dharaneeswar-Reddy-Avula"
+                className="flex flex-col"
+              >
                 <FaGithub />
                 <span className="text-[12px] md:text-xl">Github</span>
-              </div>
-              <div className="flex flex-col">
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dharaneeswar-reddy-avula-6600912aa/"
+                className="flex flex-col"
+              >
                 {" "}
                 <FaLinkedin />
                 <span className="text-[12px] md:text-xl">LinkedIn</span>
-              </div>
-              <div className="flex flex-col">
-                <FaWhatsapp />
-                <span className="text-[12px] md:text-xl">Whats'app</span>
-              </div>
-              <div className="flex flex-col">
+              </a>
+              <a
+                href="mailto:avuladharaniswarreddy@gmail.com"
+                className="flex flex-col items-center"
+              >
+                <FaEnvelope />
+                <span className="text-[12px] md:text-xl">Email</span>
+              </a>
+
+              <a href="https://x.com/Dharaneeswar_" className="flex flex-col">
                 <FaXTwitter />
                 <span className="text-[12px] md:text-xl">Twitter</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
