@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { IoMenu } from 'react-icons/io5';
 import { MdClose } from "react-icons/md";
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isActive,setIsActive]=useState('home');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -23,7 +23,7 @@ const Navbar = () => {
         {/* Logo */}
         <a
           href="#"
-          className="flex flex-col items-center justify-center group scale-[1.3] w-[190px] hover:scale-105 transition-transform duration-300 cursor-pointer font-bold text-5xl text-black"
+          className="flex flex-col items-center justify-center group scale-[1.3] w-[190px] hover:scale-105 transition-transform duration-300 cursor-pointer font-bold text-5xl text-black ml-[20px]"
         >
           <img src="logo.png" alt="Logo" />
         </a>
@@ -34,8 +34,8 @@ const Navbar = () => {
             {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
               <button
                 key={section}
-                onClick={() => handleScroll(section)}
-                className="p-[32px_20px] electro-link hover:text-[#55e6a4] transition-colors duration-200"
+                onClick={() => {handleScroll(section) ; setIsActive(section)} }
+                className={`p-[32px_20px] electro-link hover:text-[#55e6a4] transition-colors duration-200 ${isActive === section ? "text-[#55e6a4]":"text-white"}`}
               >
                 {section === 'about' ? 'About Me' : section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
@@ -64,8 +64,8 @@ const Navbar = () => {
           {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
             <button
               key={section}
-              onClick={() => handleScroll(section)}
-              className="p-4 text-lg w-full text-center hover:bg-[#1e2a3a] hover:text-[#55e6a4] transition-colors duration-200"
+              onClick={() =>{handleScroll(section) ; setIsActive(section)}}
+              className={`p-4 text-lg w-full text-center hover:bg-[#1e2a3a] hover:text-[#55e6a4] transition-colors duration-200 ${isActive === section ? "text-[#55e6a4]":"text-white"}`}
             >
               {section === 'about' ? 'About Me' : section.charAt(0).toUpperCase() + section.slice(1)}
             </button>
