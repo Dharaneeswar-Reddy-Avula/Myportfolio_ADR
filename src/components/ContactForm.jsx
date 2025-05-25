@@ -6,13 +6,21 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const ContactForm = () => {
+    const downloadFile = () => {
+    const fileUrl = `/Dharaneeswar Reddy Resume.pdf`; // Export as PPTX
+    const anchor = document.createElement("a");
+    anchor.href = fileUrl;
+    anchor.target = "_blank"; // Opens in a new tab (optional)
+    anchor.rel = "noopener noreferrer";
+    anchor.click();
+  };
   return (
     <div className="bg-[#141c27] min-h-screen md:px-[90px] flex flex-col gap-10">
       <h1 className="text-5xl relative md:text-7xl font-bold uppercase text-center text-transparent [text-stroke:_2px_#55e6a5] [-webkit-text-stroke:_2px_#55e6a5] tracking-wider before:h-[2px] before:w-[70px] md:before:w-[250px] before:bg-[#55e6a5] before:absolute before:top-7 before:left-0 after:h-[2px] after-w-[70px] md:after:w-[250px] after:bg-[#55e6a5] after:absolute after:top-7 after:right-0 after:z-20 mb-4">
         GET IN TOUCH
       </h1>
       <div className="flex  lg:flex-row flex-col justify-between">
-        <div className="bg-gray-900 p-7 rounded-lg h-[400px] md:w-[500px]">
+        <div className="bg-gray-900 p-7 rounded-lg md:h-[400px] md:w-[500px]">
           <form>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <input
@@ -54,31 +62,31 @@ const ContactForm = () => {
           </form>
         </div>
         <div className="bg-gray-900 p-7 rounded-lg h-[250px] md:w-[500px]">
-          <div className="cv bg-[#55e6a5] text-black p-[20px_30px] mr-[20px] w-full hover:bg-[#141c27] hover:text-white flex gap-2 items-center justify-center transition-all ease-linear duration-300">
+          <div onClick={downloadFile} className="cv bg-[#55e6a5] text-black p-[20px_30px] mr-[20px] w-full hover:bg-[#141c27] hover:text-white flex gap-2 items-center justify-center transition-all ease-linear duration-300">
             <span className="whitespace-nowrap">Download CV</span>{" "}
             <span className="text-lg">
               <MdFileDownload />
             </span>
           </div>
           <div className="social-media">
-            <h2 className="text-white text-3xl mt-2">Contact</h2>
-            <div className="icons text-white text-5xl mt-5 flex justify-around">
+            <h2 className="text-white text-2xl mt-4">Contact</h2>
+            <div className="icons text-white text-3xl md:text-5xl mt-5 flex justify-around flex-wrap" >
               <div className="flex flex-col">
                 <FaGithub />
-                <span className="text-xl">Github</span>
+                <span className="text-[12px] md:text-xl">Github</span>
               </div>
               <div className="flex flex-col">
                 {" "}
                 <FaLinkedin />
-                <span className="text-xl">LinkedIn</span>
+                <span className="text-[12px] md:text-xl">LinkedIn</span>
               </div>
               <div className="flex flex-col">
                 <FaWhatsapp />
-                <span className="text-xl">Whats'app</span>
+                <span className="text-[12px] md:text-xl">Whats'app</span>
               </div>
               <div className="flex flex-col">
                 <FaXTwitter />
-                <span className="text-xl">Twitter</span>
+                <span className="text-[12px] md:text-xl">Twitter</span>
               </div>
             </div>
           </div>

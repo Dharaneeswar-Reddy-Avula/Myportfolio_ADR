@@ -68,3 +68,6 @@ a:hover .electro-letter {
 html {
   scroll-behavior: smooth;
 }
+.navbar{
+  z-index: 1000;
+}

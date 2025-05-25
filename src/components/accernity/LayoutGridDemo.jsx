@@ -78,7 +78,7 @@ const projects = [
 const cards = projects.map((project, index) => ({
   id: index,
   content: (
-    <div className="bg-black/10  w-full h-[200px] rounded-md backdrop-blur-lg flex flex-col justify-center">
+    <div className="bg-black/10  w-full  rounded-md backdrop-blur-lg flex flex-col justify-center">
       <p className="text-white font-bold text-2xl backdrop-blur-lg bg-black/30 rounded-md p-2 mb-1">{project.name}</p>
       <p className="text-md text-white font-bold backdrop-blur-lg bg-black/30 rounded-md p-2 mb-1">{project.description}</p>
       <p className="text-md text-white font-bold backdrop-blur-lg bg-black/30 rounded-md p-2 mb-1">Role: {project.Role}</p>
