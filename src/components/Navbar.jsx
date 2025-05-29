@@ -1,21 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoMenu } from 'react-icons/io5';
 import { MdClose } from "react-icons/md";
+import { useNavigate, useLocation } from 'react-router-dom';
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isActive,setIsActive]=useState('home');
+  const [activeSection, setActiveSection] = useState('home');
+  const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleScroll = (section) => {
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  // Scroll to section
+  const handleScrollTo = (section) => {
+    const target = document.getElementById(section);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(section);
+      navigate(`#${section}`); // update the URL hash
+      setIsMenuOpen(false); // close mobile menu after click
     }
-    setIsMenuOpen(false);
   };
+
+  // On load, check if there's a hash and scroll there
+  useEffect(() => {
+    if (location.hash) {
+      const section = location.hash.replace('#', '');
+      const target = document.getElementById(section);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(section);
+      }
+    }
+  }, [location]);
+
+  // Update active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      sections.forEach((section) => {
+        const target = document.getElementById(section);
+        if (
+          target &&
+          target.offsetTop <= scrollPosition &&
+          target.offsetTop + target.offsetHeight > scrollPosition
+        ) {
+          setActiveSection((prev) => {
+            if (prev !== section) {
+              navigate(`#${section}`); // update URL when section changes
+            }
+            return section;
+          });
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [navigate, sections]);
 
   return (
     <div className='relative'>
@@ -31,11 +78,13 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex">
           <ul className="flex items-center justify-center text-white font-poppins">
-            {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+            {sections.map((section) => (
               <button
                 key={section}
-                onClick={() => {handleScroll(section) ; setIsActive(section)} }
-                className={`p-[32px_20px] electro-link hover:text-[#55e6a4] transition-colors duration-200 ${isActive === section ? "text-[#55e6a4]":"text-white"}`}
+                onClick={() => handleScrollTo(section)}
+                className={`p-[32px_20px] electro-link hover:text-[#55e6a4] transition-colors duration-200 ${
+                  activeSection === section ? 'text-[#55e6a4]' : 'text-white'
+                }`}
               >
                 {section === 'about' ? 'About Me' : section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
@@ -49,7 +98,7 @@ const Navbar = () => {
           onClick={toggleMenu}
         >
           <span className="text-5xl text-black">
-           <IoMenu />
+             {isMenuOpen ? <MdClose /> : <IoMenu />}
           </span>
         </div>
       </div>
@@ -61,11 +110,13 @@ const Navbar = () => {
         } transition-transform duration-300 ease-in-out`}
       >
         <div className="flex flex-col items-center justify-center text-white font-poppins pb-4">
-          {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+          {sections.map((section) => (
             <button
               key={section}
-              onClick={() =>{handleScroll(section) ; setIsActive(section)}}
-              className={`p-4 text-lg w-full text-center hover:bg-[#1e2a3a] hover:text-[#55e6a4] transition-colors duration-200 ${isActive === section ? "text-[#55e6a4]":"text-white"}`}
+              onClick={() => handleScrollTo(section)}
+              className={`p-4 text-lg w-full text-center hover:bg-[#1e2a3a] hover:text-[#55e6a4] transition-colors duration-200 ${
+                activeSection === section ? 'text-[#55e6a4]' : 'text-white'
+              }`}
             >
               {section === 'about' ? 'About Me' : section.charAt(0).toUpperCase() + section.slice(1)}
             </button>
