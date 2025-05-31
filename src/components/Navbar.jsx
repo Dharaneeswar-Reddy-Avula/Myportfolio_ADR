@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isNavigating, setIsNavigating] = useState(false); // New flag to track click navigation
   const sections = ['home', 'about', 'skills', 'projects', 'contact'];
 
   const navigate = useNavigate();
@@ -19,10 +20,16 @@ const Navbar = () => {
   const handleScrollTo = (section) => {
     const target = document.getElementById(section);
     if (target) {
+      setIsNavigating(true); // Disable observer during navigation
       target.scrollIntoView({ behavior: 'smooth' });
       setActiveSection(section);
-      navigate(`#${section}`); // update the URL hash
-      setIsMenuOpen(false); // close mobile menu after click
+      navigate(`#${section}`); // Update the URL hash
+      setIsMenuOpen(false); // Close mobile menu after click
+
+      // Re-enable observer after scroll animation (approx. 1s)
+      setTimeout(() => {
+        setIsNavigating(false);
+      }, 1000);
     }
   };
 
@@ -30,46 +37,69 @@ const Navbar = () => {
   useEffect(() => {
     if (location.hash) {
       const section = location.hash.replace('#', '');
-      const target = document.getElementById(section);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(section);
-      }
-    }
-  }, [location]);
-
-  // Update active section on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      sections.forEach((section) => {
+      if (sections.includes(section)) {
         const target = document.getElementById(section);
-        if (
-          target &&
-          target.offsetTop <= scrollPosition &&
-          target.offsetTop + target.offsetHeight > scrollPosition
-        ) {
-          setActiveSection((prev) => {
-            if (prev !== section) {
-              navigate(`#${section}`); // update URL when section changes
-            }
-            return section;
-          });
+        if (target) {
+          setIsNavigating(true); // Disable observer during initial load
+          target.scrollIntoView({ behavior: 'smooth' });
+          setActiveSection(section);
+          setTimeout(() => {
+            setIsNavigating(false);
+          }, 1000);
         }
-      });
+      } else {
+        // Default to 'home' if no valid hash
+        navigate('#home');
+        setActiveSection('home');
+      }
+    } else {
+      // Ensure 'home' is active if no hash
+      navigate('#home');
+      setActiveSection('home');
+    }
+  }, [location, navigate]);
+
+  // Update active section on scroll using Intersection Observer
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px', // Trigger when section is in the middle of viewport
+      threshold: 0,
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [navigate, sections]);
+    const observer = new IntersectionObserver((entries) => {
+      if (isNavigating) return; // Skip observer updates during click navigation
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          if (sectionId && sections.includes(sectionId) && activeSection !== sectionId) {
+            setActiveSection(sectionId);
+            navigate(`#${sectionId}`, { replace: true }); // Update URL without adding to history
+          }
+        }
+      });
+    }, observerOptions);
+
+    const sectionElements = sections.map((id) => document.getElementById(id)).filter(Boolean);
+
+    sectionElements.forEach((section) => observer.observe(section));
+
+    return () => {
+      sectionElements.forEach((section) => observer.unobserve(section));
+    };
+  }, [navigate, activeSection, sections, isNavigating]);
 
   return (
     <div className='relative'>
       <div className="fixed top-0 left-0 right-0 z-[60] bg-[#141c27] h-[80px] md:mx-[90px] flex items-center justify-between shadow-md overflow-hidden">
         {/* Logo */}
         <a
-          href="#"
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            handleScrollTo('home');
+          }}
           className="flex flex-col items-center justify-center group scale-[1.3] w-[190px] hover:scale-105 transition-transform duration-300 cursor-pointer font-bold text-5xl text-black ml-[20px]"
         >
           <img src="logo.png" alt="Logo" />
@@ -98,7 +128,7 @@ const Navbar = () => {
           onClick={toggleMenu}
         >
           <span className="text-5xl text-black">
-             {isMenuOpen ? <MdClose /> : <IoMenu />}
+            {isMenuOpen ? <MdClose /> : <IoMenu />}
           </span>
         </div>
       </div>
