@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isNavigating, setIsNavigating] = useState(false); // New flag to track click navigation
+  const [isNavigating, setIsNavigating] = useState(false); // Flag to track click navigation
   const sections = ['home', 'about', 'skills', 'projects', 'contact'];
 
   const navigate = useNavigate();
@@ -20,13 +20,12 @@ const Navbar = () => {
   const handleScrollTo = (section) => {
     const target = document.getElementById(section);
     if (target) {
-      setIsNavigating(true); // Disable observer during navigation
+      setIsNavigating(true); 
       target.scrollIntoView({ behavior: 'smooth' });
       setActiveSection(section);
-      navigate(`#${section}`); // Update the URL hash
-      setIsMenuOpen(false); // Close mobile menu after click
+      navigate(`#${section}`, { replace: true }); // Update URL hash without scrolling
+      setIsMenuOpen(false); 
 
-      // Re-enable observer after scroll animation (approx. 1s)
       setTimeout(() => {
         setIsNavigating(false);
       }, 1000);
@@ -49,12 +48,12 @@ const Navbar = () => {
         }
       } else {
         // Default to 'home' if no valid hash
-        navigate('#home');
+        navigate('#home', { replace: true });
         setActiveSection('home');
       }
     } else {
       // Ensure 'home' is active if no hash
-      navigate('#home');
+      navigate('#home', { replace: true });
       setActiveSection('home');
     }
   }, [location, navigate]);
@@ -75,7 +74,8 @@ const Navbar = () => {
           const sectionId = entry.target.id;
           if (sectionId && sections.includes(sectionId) && activeSection !== sectionId) {
             setActiveSection(sectionId);
-            navigate(`#${sectionId}`, { replace: true }); // Update URL without adding to history
+            // Update URL hash without triggering scroll
+            window.history.replaceState(null, '', `#${sectionId}`);
           }
         }
       });
@@ -88,7 +88,7 @@ const Navbar = () => {
     return () => {
       sectionElements.forEach((section) => observer.unobserve(section));
     };
-  }, [navigate, activeSection, sections, isNavigating]);
+  }, [activeSection, sections, isNavigating]);
 
   return (
     <div className='relative'>
