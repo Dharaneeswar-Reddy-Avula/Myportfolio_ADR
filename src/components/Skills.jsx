@@ -9,7 +9,7 @@ const Skills = () => {
     },
     {
       name: "Tailwind CSS",
-      strength: "75%",
+      strength: "85%",
       logo: "/tailwind.svg",
     },
     {
@@ -24,12 +24,12 @@ const Skills = () => {
     },
     {
       name: "JavaScript",
-      strength: "80%",
+      strength: "70%",
       logo: "/JS.png",
     },
     {
       name: "Node.js",
-      strength: "70%",
+      strength: "65%",
       logo: "/NodeJs.svg",
     },
     {
@@ -39,7 +39,7 @@ const Skills = () => {
     },
     {
       name: "Bootstrap",
-      strength: "80%",
+      strength: "70%",
       logo: "/Bootstrap.svg",
     },
     {

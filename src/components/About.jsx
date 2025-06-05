@@ -16,9 +16,7 @@ const About = () => {
                   <li className="border-[1px] text-white border-[#55e6a5] p-[10px] rounded-lg relative after:absolute after:h-[20px] after:w-[20px] after:bg-[#55e6a5] after:rounded-full after:left-[-30px] md:after:left-[-40px]">
                     Currently Studying: BTech 3rd year, CSE, RGUKT NUZVID (2025-2026)
                   </li>
-                  <li className="border-[1px] text-white border-[#55e6a5] p-[10px] rounded-lg relative after:absolute after:h-[20px] after:w-[20px] after:bg-[#55e6a5] after:rounded-full after:left-[-30px] md:after:left-[-40px]">
-                    BTech: RGUKT Nuzvid
-                  </li>{" "}
+                
                   <li className="border-[1px] text-white border-[#55e6a5] p-[10px] rounded-lg relative after:absolute after:h-[20px] after:w-[20px] after:bg-[#55e6a5] after:rounded-full after:left-[-30px] md:after:left-[-40px]">
                     Intermediate: RGUKT Nuzvid (2021-2023)
                   </li>
@@ -32,7 +30,7 @@ const About = () => {
                   Experience
                 </h3>
                 <div className="border-[1px] text-white border-[#55e6a5] p-[10px] rounded-lg relative after:absolute after:h-[20px] after:w-[20px] after:bg-[#55e6a5] after:rounded-full after:left-[-30px] md:after:left-[-40px]">
-                  Intern at TechBuggy
+                  Intern at TechBuggy  - DEC 9, 2024 to Present
                 </div>
               </div>
             </div>
