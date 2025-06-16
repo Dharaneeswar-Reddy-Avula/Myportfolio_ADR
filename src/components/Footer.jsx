@@ -24,7 +24,7 @@ const Footer = () => {
        <MdWifiCalling3 />
       </div>
       <div>
-        <h4 className="text-lg font-bold mb-3">Lets talk us</h4>
+        <h4 className="text-lg font-bold mb-3">Contact</h4>
         <p className='text-[#A2A2A2]'>+91 8790756930</p>
       </div>
     </div>
@@ -34,7 +34,7 @@ const Footer = () => {
      <MdMarkEmailUnread />
       </div>
   <div className=''>
-  <h4 className="text-lg font-bold mb-3">Send us email</h4>
+  <h4 className="text-lg font-bold mb-3">Send me email</h4>
   <p className='text-[#A2A2A2] break-words text-md '>avuladharaniswarreddy <br className='md:hidden'/> @gmail.com</p>
 </div>
 
@@ -45,11 +45,11 @@ const Footer = () => {
 
   <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-400">
     <p>© Dharaneeswar Reddy Avula 2025 | All Rights Reserved</p>
-    <div className="flex space-x-6 mt-4 md:mt-0">
+    {/* <div className="flex space-x-6 mt-4 md:mt-0">
       <a href="#" className="hover:text-white">Terms & Conditions</a>
       <a href="#" className="hover:text-white">Privacy Policy</a>
       <a href="#" className="hover:text-white">Sitemap</a>
-    </div>
+    </div> */}
     <div className="mt-4 md:mt-0">
    <a href="#">  <button className="text-white border border-gray-600 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-800 transition">
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2"

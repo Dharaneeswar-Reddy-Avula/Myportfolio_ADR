@@ -27,11 +27,20 @@ const Hero = () => {
   </a>
 </div>
 </div>
-<div className='bg-center bg-contain bg-no-repeat  bg-[url("/banner_shape.png")] p-7 md:scale-[1.3] mt-[80px] md:mr-[50px]'>
+{/* <div className='bg-center bg-contain bg-no-repeat  bg-[url("/banner_shape.png")] p-7 md:scale-[1.3] mt-[80px] md:mr-[50px]'>
     <img src="Dharaneeswar_Reddy.png" alt="" className='md:h-[350px] mt-[-20px]' />
 
-</div>
-
+</div> */}
+ <div className="flex flex-col items-center">
+          <div className="size-[250px] md:size-[350px] bg-[#55e6a5] md:ml-[90px] relative flex items-end justify-center">
+            <div className="md:h-[370px] md:w-[350px] bg-[#131311] absolute top-5 right-5 flex flex-col items-center">
+              <img src="2.png" alt="" className="scale-[1.2] md:scale-130 mt-5" />
+            </div>
+          </div>
+          {/* <div className="bg-white/10 backdrop-blur-lg h-[100px]  z-30 mx-2 md:ml-[50px] mt-[70px] text-white flex justify-center items-center px-[30px] rounded-md">
+        <i>"Crafting clean, functional, and user-focused websites that make an impact."</i>
+          </div> */}
+        </div>
     </div>
   )
 }

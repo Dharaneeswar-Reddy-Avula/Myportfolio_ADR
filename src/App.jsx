@@ -79,7 +79,7 @@ const App = () => {
         "textarea",
         "select",
         "label",
-        "link",
+        "Link",
       ];
       if (interactiveTags.includes(tag)) {
         setIsHovering(true);

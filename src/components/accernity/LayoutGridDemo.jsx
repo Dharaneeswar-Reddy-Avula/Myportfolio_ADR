@@ -74,7 +74,7 @@ const projects = [
     link: "https:sabbafarm.com",
     Role: "Frontend, SEO",
     stack: "MERN Stack",
-    image: "https://via.placeholder.com/300x180?text=Sabbafarm",
+    image: "sb.png",
     
   },
   // {
@@ -86,34 +86,57 @@ const projects = [
   //   image: "https://via.placeholder.com/300x180?text=EventArchitects",
   // },
 ];
+
+
+
 const cards = projects.map((project, index) => ({
   id: index,
   content: (
-    <div className="bg-[#141c27] w-full  rounded-md backdrop-blur-lg flex flex-col justify-center">
-      <p className="text-white font-bold text-2xl backdrop-blur-lg bg-black/20 rounded-md p-2 mb-1">
-        {project.name}
-      </p>
-      <p className="text-md text-white font-bold backdrop-blur-lg bg-black/20 rounded-md p-2 mb-1">
-        {project.description}
-      </p>
-      <p className="text-md text-white font-bold backdrop-blur-lg bg-black/20 rounded-md p-2 mb-1">
-        Role: {project.Role}
-      </p>
-      <p className="text-md text-white font-bold backdrop-blur-lg bg-black/20 rounded-md p-2 mb-1">
-        Stack: {project.stack}
-      </p>
-      <Link
-        to={`${project.link}`}
-        className="text-md text-white font-bold backdrop-blur-lg bg-black/20 rounded-md p-2 mb-1 flex gap-3 items-center"
-      >
-        Visit Website <FaArrowsTurnRight />
+    <div className="bg-[#1b2735] w-full p-3 md:h-[280px] rounded-2xl overflow-hidden shadow-lg flex flex-col md:flex-row scale-[1.05] hover:scale-[1.1] hover:shadow-2xl transition-transform duration-300">
 
+      {/* Project Image */}
+      <Link to={project.link} target="_blank" className=" w-full h-[200px] md:h-auto ">
+        <img
+          src={project.image}
+          alt={project.name}
+          className="object-fit w-full h-full transition duration-300 hover:opacity-90 border border-[#55e6a5] rounded-lg p-2"
+        />
       </Link>
-    </div>
-  ),
 
+      {/* Project Info */}
+      <div className=" md:px-3 flex flex-col gap-2  w-full justify-between">
+        <h3 className="text-2xl font-bold text-white">{project.name}</h3>
+
+       
+        <div className="flex flex-col gap-2">
+           <p className="text-white text-sm font-medium bg-white/5 backdrop-blur-sm p-2 rounded-md border border-white/10">
+          {project.description}
+        </p>
+
+          <p className="text-white text-sm bg-white/5 backdrop-blur-sm p-2 rounded-md border border-white/10">
+            <span className="text-[#55e6a5] font-semibold">Role:</span> {project.Role}
+          </p>
+          <p className="text-white text-sm bg-white/5 backdrop-blur-sm p-2 rounded-md border border-white/10">
+            <span className="text-[#55e6a5] font-semibold">Stack:</span> {project.stack}
+          </p>
+        </div>
+
+        <Link
+          to={project.link}
+          target="_blank"
+          className=" text-white text-sm font-semibold flex items-center gap-2 bg-gradient-to-r from-[#55e6a5]  hover:from-[#55e6a5] px-4 py-2 rounded-md transition duration-200"
+        >
+          Visit Website <FaArrowsTurnRight />
+        </Link>
+      </div>
+    </div>
+     
+  ),
   className: "col-span-1",
 }));
+
+
+
 
 export const LayoutGridDemo = () => {
   return (
