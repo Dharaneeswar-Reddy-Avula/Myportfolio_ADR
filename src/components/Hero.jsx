@@ -12,7 +12,7 @@ const Hero = () => {
   };
   return (
 <div className='relative min-h-screen bg-center bg-cover bg-no-repeat  bg-[url("/homeBg.jpg")] flex flex-col md:flex-row items-center justify-evenly text-white p-3'>
-<div className='md:w-1/2 flex flex-col justify-center pt-[70px] font-poppins'>
+<div className='md:w-1/2 flex flex-col justify-center pt-[70px] font-poppins md:ml-[50px]'>
  <h1 className="text-[35px] md:text-[47px] font-bold uppercase leading-[1.2] break-normal mb-[30px] mt-10">
   HI, I'M <br />Dharaneeswar Reddy ! <br />
  FULLSTACK <span className='text-[#55e6a5]'> DEVELOPER</span>
@@ -27,20 +27,18 @@ const Hero = () => {
   </a>
 </div>
 </div>
-{/* <div className='bg-center bg-contain bg-no-repeat  bg-[url("/banner_shape.png")] p-7 md:scale-[1.3] mt-[80px] md:mr-[50px]'>
-    <img src="Dharaneeswar_Reddy.png" alt="" className='md:h-[350px] mt-[-20px]' />
+<div className='bg-center bg-contain bg-no-repeat  bg-[url("/banner_shape.png")] p-7 md:scale-[1.2] mt-[80px] md:mr-[50px]'>
+    <img src="IMAGE.png" alt="" className='md:h-[350px] mt-[-20px]' />
 
-</div> */}
- <div className="flex flex-col items-center">
+</div>
+ {/* <div className="flex flex-col items-center">
           <div className="size-[250px] md:size-[350px] bg-[#55e6a5] md:ml-[90px] relative flex items-end justify-center">
             <div className="md:h-[370px] md:w-[350px] bg-[#131311] absolute top-5 right-5 flex flex-col items-center">
               <img src="2.png" alt="" className="scale-[1.2] md:scale-130 mt-5" />
             </div>
           </div>
-          {/* <div className="bg-white/10 backdrop-blur-lg h-[100px]  z-30 mx-2 md:ml-[50px] mt-[70px] text-white flex justify-center items-center px-[30px] rounded-md">
-        <i>"Crafting clean, functional, and user-focused websites that make an impact."</i>
-          </div> */}
-        </div>
+        
+        </div> */}
     </div>
   )
 }

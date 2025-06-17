@@ -4,7 +4,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen mt-[-70px]">
       <LayoutGridDemo />
-     
+    
     </div>
   );
 };

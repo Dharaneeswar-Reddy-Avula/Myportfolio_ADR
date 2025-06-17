@@ -2,8 +2,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowsTurnRight } from "react-icons/fa6";
-
 import { LayoutGrid } from "./layout-grid";
+import Test from "../test";
 const projects = [
   {
     name: "Teckzite",
@@ -92,14 +92,14 @@ const projects = [
 const cards = projects.map((project, index) => ({
   id: index,
   content: (
-    <div className="bg-[#1b2735] w-full p-3 md:h-[280px] rounded-2xl overflow-hidden shadow-lg flex flex-col md:flex-row scale-[1.05] hover:scale-[1.1] hover:shadow-2xl transition-transform duration-300">
+    <div className="bg-[#1b2735]/80 backdrop-blur-md w-full p-8 md:h-[300px] rounded-2xl overflow-hidden shadow-lg flex flex-col md:flex-row hover:scale-[1.1] hover:shadow-2xl transition-transform duration-300 border border-[#55e6a5]/20">
 
       {/* Project Image */}
       <Link to={project.link} target="_blank" className=" w-full h-[200px] md:h-auto ">
         <img
           src={project.image}
           alt={project.name}
-          className="object-fit w-full h-full transition duration-300 hover:opacity-90 border border-[#55e6a5] rounded-lg p-2"
+          className="object-fit w-full h-full transition duration-300 hover:opacity-90 border border-[#55e6a5] rounded-lg p-2 "
         />
       </Link>
 
@@ -117,7 +117,7 @@ const cards = projects.map((project, index) => ({
             <span className="text-[#55e6a5] font-semibold">Role:</span> {project.Role}
           </p>
           <p className="text-white text-sm bg-white/5 backdrop-blur-sm p-2 rounded-md border border-white/10">
-            <span className="text-[#55e6a5] font-semibold">Stack:</span> {project.stack}
+            <span className="text-[#55e6a5] font-semibold">Tech Stack:</span> {project.stack}
           </p>
         </div>
 
@@ -145,6 +145,7 @@ export const LayoutGridDemo = () => {
         PROJECTS
       </h1>
       <LayoutGrid cards={cards} />
+      {/* <Test/> */}
     </div>
   );
 };
