@@ -255,17 +255,20 @@ const About = () => {
     <>
       <b>Currently Studying:</b> BTech 3rd Year, CSE <br />
       Rajiv Gandhi University of Knowledge Technologies, Nuzvid <br />
-      <i>(July 2025 - April 2026)</i>
+      <i>(July 2025 - April 2026)</i> <br />
+       CGPA: 8.2/10
     </>,
     <>
       <b>Pre-University Course:</b> <br />
       Rajiv Gandhi University of Knowledge Technologies, Nuzvid <br />
-      <i>(Nov 2021 - Aug 2023)</i>
+      <i>(Nov 2021 - Aug 2023)</i> <br />
+      CGPA: 9.72/10
     </>,
     <>
       <b>SSC:</b> <br />
-      St. Antony's E.M High School, Kadapa <br />
-      <i>(June 2020 - April 2021)</i>
+      St. Antony's E.M High School, Kalasapadu, Kadapa (Dist) <br />
+      <i>(June 2020 - April 2021)</i> <br />
+      CGPA: 10/10
     </>,
   ];
   const certificationsList = [
@@ -480,6 +483,16 @@ const About = () => {
                   </p>
                   <p className="text-sm italic text-gray-400">
                     (June 2024 - Present)
+                  </p> <br />
+
+                   <p className="text-white font-medium">
+                    Web Team Volunteer, Teckzite 2k25
+                  </p>
+                  <p className="text-sm text-gray-400">
+                    Rajiv Gandhi University of Knowledge Technologies, Nuzvid
+                  </p>
+                  <p className="text-sm italic text-gray-400">
+                    (January 2025 - March 2025)
                   </p>
                 </div>
 
