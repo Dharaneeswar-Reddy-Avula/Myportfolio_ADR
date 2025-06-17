@@ -59,7 +59,7 @@ const Skills = () => {
       <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-100px] mx-5 pl-[30px] mb-[50px]">
        Hands-on Experience In
       </h1>
-      <div className="flex flex-col md:flex-row w-full items-center md:gap-20">
+      <div className="flex flex-col md:flex-row w-full items-center gap-10 md:gap-20">
      <div className="md:w-1/2 grid md:grid-cols-2 gap-6">
   {[0, 1].map((columnIndex) => (
     <div key={columnIndex} className="flex flex-col gap-3">

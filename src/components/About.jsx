@@ -295,7 +295,7 @@ const About = () => {
 
       <div className="px-2">
         {/* Tab buttons */}
-        <div className="flex gap-6 mb-6">
+        <div className="flex gap-6 mb-6 flex-wrap">
           <button
             onClick={() => setActiveTab("education")}
             className={`px-4 py-2 rounded-md font-medium border ${
