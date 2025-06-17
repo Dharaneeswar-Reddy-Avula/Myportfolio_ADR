@@ -17,7 +17,7 @@ const ContactForm = () => {
   };
   return (
     <div className="bg-[#141c27] min-h-screen px-4 md:px-[90px] flex flex-col gap-10">
-      <h1 className="text-5xl relative md:text-7xl font-bold uppercase text-center text-transparent [text-stroke:_2px_#55e6a5] [-webkit-text-stroke:_2px_#55e6a5] tracking-wider before:h-[2px] before:w-[70px] md:before:w-[250px] before:bg-[#55e6a5] before:absolute before:top-7 before:left-0 after:h-[2px] after-w-[70px] md:after:w-[250px] after:bg-[#55e6a5] after:absolute after:top-7 after:right-0 after:z-20 mb-4">
+      <h1 className="text-5xl relative md:text-7xl font-bold uppercase text-center text-transparent [text-stroke:_2px_#55e6a5] [-webkit-text-stroke:_2px_#55e6a5] tracking-wider before:h-[2px] before:w-[70px] md:before:w-[250px] before:bg-[#55e6a5] before:absolute before:top-7 before:left-[-20px] after:h-[2px] after-w-[70px] md:after:w-[250px] after:bg-[#55e6a5] after:absolute after:top-7 after:right-0 after:z-20 mb-4">
         GET IN TOUCH
       </h1>
       <div className="flex  lg:flex-row flex-col justify-between gap-10">

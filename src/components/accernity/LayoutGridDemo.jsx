@@ -92,7 +92,7 @@ const projects = [
 const cards = projects.map((project, index) => ({
   id: index,
   content: (
-    <div className="bg-[#1b2735]/80 backdrop-blur-md w-full p-8 md:h-[300px] rounded-2xl overflow-hidden shadow-lg flex flex-col md:flex-row hover:scale-[1.1] hover:shadow-2xl transition-transform duration-300 border border-[#55e6a5]/20">
+    <div className="bg-[#1b2735]/80 backdrop-blur-md w-full p-3 md:p-8 md:h-[300px] md:rounded-2xl overflow-hidden shadow-lg flex flex-col md:flex-row hover:scale-[1.1] hover:shadow-2xl transition-transform duration-300 border border-[#55e6a5]/20">
 
       {/* Project Image */}
       <Link to={project.link} target="_blank" className=" w-full h-[200px] md:h-auto ">

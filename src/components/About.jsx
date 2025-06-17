@@ -287,10 +287,9 @@ const About = () => {
 
   return (
     <div className="min-h-screen w-full bg-[#141c27] font-poppins pt-[140px] pb-[50px] md:px-[90px] gap-10 md:gap-[50px] items-center">
-      <h1 className="text-[#55e6a5] text-2xl font-semibold relative pl-[30px] mb-6">
-        <span className="relative before:absolute before:h-[2px] before:w-[80px] before:bg-[#55e6a5] before:top-3 before:left-[-100px]">
-          ACADEMICS
-        </span>
+    
+       <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-80px] md:before:left-[-100px] mx-5 pl-[30px] mb-[50px]">
+      Academics
       </h1>
 
       <div className="px-2">
