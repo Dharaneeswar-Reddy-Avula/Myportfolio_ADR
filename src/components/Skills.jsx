@@ -92,7 +92,7 @@ const Skills = () => {
   ))}
 </div>
 
-        <div className=" h-[300px] w-[300px] md:w-[600px] md:h-[550px] bg-[#1b2735]/80 backdrop-blur-md border border-[#55e6a5]/20">
+        <div className=" h-[300px] w-[300px] md:w-[600px] md:h-[550px] lg:bg-[#1b2735]/80 lg:backdrop-blur-md lg:border lg:border-[#55e6a5]/20">
           <DotLottieReact
             src="https://lottie.host/6b346d52-2ac0-49b6-8ae6-6465be300f31/Q7gxlbra8i.lottie"
             loop
