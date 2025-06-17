@@ -92,7 +92,7 @@ const Navbar = () => {
 
   return (
     <div className='relative'>
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-[#141c27] h-[80px] md:mx-[90px] flex items-center justify-between shadow-md overflow-hidden">
+      <div className="fixed top-0 left-0 right-0 z-[60] bg-[#1b2735]/80 backdrop-blur-md h-[80px] md:mx-[90px] flex items-center justify-between shadow-md overflow-hidden">
         {/* Logo */}
         <a
           href="#home"
@@ -135,7 +135,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-[80px] left-0 w-full z-[50] bg-[#141c27] transform ${
+        className={`md:hidden fixed top-[80px] left-0 w-full z-[50] bg-[#1b2735]/80 backdrop-blur-md transform ${
           isMenuOpen ? 'translate-y-0' : '-translate-y-full'
         } transition-transform duration-300 ease-in-out`}
       >

@@ -5,8 +5,8 @@ import { FaMapLocationDot } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className='bg-[#02050a] font-poppins md:px-[90px]'>
-      <footer className=" text-white py-12">
+    <div className='bg-[#1b2735]/80 backdrop-blur-md font-poppins md:px-[90px]'>
+      <footer className=" text-white py-12  ">
   <div className="max-w-7xl mx-auto px-3 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-10 py-[60px]">
     
     <div className="flex items-start space-x-4">
