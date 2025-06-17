@@ -55,8 +55,8 @@ const Skills = () => {
   ];
 
   return (
-    <div className="bg-[#141c27] min-h-screen px-10 md:px-[90px] pt-[50px] pb-[50px]">
-      <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-100px] mx-5 pl-[30px] mb-[50px]">
+    <div className="bg-[#141c27] min-h-screen px-3 md:px-[90px] pt-[50px] pb-[50px]">
+      <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-100px] lg:mx-5 pl-[30px] mb-[50px]">
        Hands-on Experience In
       </h1>
       <div className="flex flex-col md:flex-row w-full items-center gap-10 md:gap-20">
