@@ -8,7 +8,7 @@ import { FaEnvelope } from 'react-icons/fa';
 
 const ContactForm = () => {
   const downloadFile = () => {
-    const fileUrl = `/Dharaneeswar Reddy Resume.pdf`; // Export as PPTX
+    const fileUrl = `/Dharaneeswar-Reddy-Avula.pdf`; // Export as PPTX
     const anchor = document.createElement("a");
     anchor.href = fileUrl;
     anchor.target = "_blank"; // Opens in a new tab (optional)
