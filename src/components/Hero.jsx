@@ -3,7 +3,7 @@ import { MdFileDownload } from "react-icons/md";
 
 const Hero = () => {
    const downloadFile = () => {
-    const fileUrl = `/Dharaneeswar-Reddy-Avula.pdf`; // Export as PPTX
+    const fileUrl = `/Dharaneeswar-Reddy-Avula-updated.pdf`; // Export as PPTX
     const anchor = document.createElement("a");
     anchor.href = fileUrl;
     anchor.target = "_blank"; // Opens in a new tab (optional)
