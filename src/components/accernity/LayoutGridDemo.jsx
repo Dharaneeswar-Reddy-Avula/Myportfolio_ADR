@@ -15,6 +15,15 @@ const projects = [
 
   },
   {
+    name: "CryptoLance",
+    description: "Decentralised Freelance Platform",
+    link: "https://crypto-lance-gamma.vercel.app",
+    Role: "Fullstack Developer",
+    stack: "MERN Stack",
+    image: "/crypto.png",
+
+  },
+  {
     name: "Alumni",
     description: "Alumni network platform",
     link: "https://alumni-repo.vercel.app/",
