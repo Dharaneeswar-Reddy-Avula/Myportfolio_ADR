@@ -66,20 +66,20 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="bg-[#141c27] min-h-screen px-4 md:px-[90px] pt-20 pb-28 font-poppins">
+    <section className="bg-[#141c27] min-h-screen px-2 sm:px-4 md:px-[90px] pt-20 pb-28 font-poppins">
       {/* Section Header */}
-      <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-80px] md:before:left-[-100px] mx-5 pl-[30px] mb-3 uppercase tracking-wider font-semibold">
+      <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-80px] md:before:left-[-100px] mx-1 sm:mx-3 md:mx-5 pl-4 sm:pl-[30px] mb-3 uppercase tracking-wider font-semibold">
         Get In Touch
       </h1>
-      <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-5 pl-[30px] mb-10">
+      <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-1 sm:mx-3 md:mx-5 pl-4 sm:pl-[30px] mb-10">
         Have an open software engineering role, a high-impact project, or an engineering discussion
         in mind? Feel free to reach out directly.
       </p>
 
       {/* Two-Column Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mx-5 max-w-6xl">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mx-1 sm:mx-3 md:mx-5 max-w-6xl">
         {/* Left Column: Modern Contact Form */}
-        <div className="lg:col-span-7 bg-[#0d1624]/95 border border-slate-700/70 hover:border-[#55e6a5]/40 transition-all duration-300 rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div className="lg:col-span-7 bg-[#0d1624]/95 border border-slate-700/70 hover:border-[#55e6a5]/40 transition-all duration-300 rounded-2xl p-4 sm:p-8 shadow-xl">
           <div className="flex items-center justify-between pb-4 border-b border-slate-700/70 mb-6">
             <div>
               <h2 className="text-white text-xl font-bold tracking-tight">Send a Message</h2>
@@ -191,7 +191,7 @@ const ContactForm = () => {
         </div>
 
         {/* Right Column: Unified Contact Information & Channels Card */}
-        <div className="lg:col-span-5 bg-[#0d1624]/95 border border-slate-700/70 hover:border-[#55e6a5]/40 transition-all duration-300 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-[#0d1624]/95 border border-slate-700/70 hover:border-[#55e6a5]/40 transition-all duration-300 rounded-2xl p-4 sm:p-8 shadow-xl flex flex-col justify-between">
           <div>
             {/* Header */}
             <div className="flex items-center justify-between pb-4 border-b border-slate-700/70 mb-6">

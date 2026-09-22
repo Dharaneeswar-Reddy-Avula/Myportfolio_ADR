@@ -99,17 +99,17 @@ const Projects = () => {
       : projectsData.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="w-full bg-[#141c27] font-poppins pt-16 pb-20 px-4 md:px-[90px]">
+    <section className="w-full bg-[#141c27] font-poppins pt-16 pb-20 px-2 sm:px-4 md:px-[90px]">
       {/* Section Header */}
-      <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-80px] md:before:left-[-100px] mx-5 pl-[30px] mb-2 uppercase tracking-wider font-semibold">
+      <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-80px] md:before:left-[-100px] mx-1 sm:mx-3 md:mx-5 pl-4 sm:pl-[30px] mb-2 uppercase tracking-wider font-semibold">
         Featured Projects
       </h1>
-      <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-5 pl-[30px] mb-7">
+      <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-1 sm:mx-3 md:mx-5 pl-4 sm:pl-[30px] mb-7">
         Production applications, AI systems, and high-performance web engineering.
       </p>
 
       {/* Category Filter Tabs */}
-      <div className="flex flex-wrap gap-2 mb-8 mx-5 p-1 bg-[#101824] border border-slate-700/60 rounded-xl w-fit">
+      <div className="flex flex-wrap gap-2 mb-8 mx-1 sm:mx-3 md:mx-5 p-1 bg-[#101824] border border-slate-700/60 rounded-xl w-fit">
         {categories.map(({ id, label, icon: Icon }) => {
           const isActive = activeCategory === id;
           return (
@@ -130,7 +130,7 @@ const Projects = () => {
       </div>
 
       {/* 2-Column Balanced Projects Grid (Compact & Modern) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-5 max-w-6xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-1 sm:mx-3 md:mx-5 max-w-6xl">
         {filteredProjects.map((project) => (
           <div
             key={project.id}

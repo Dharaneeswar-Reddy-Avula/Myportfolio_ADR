@@ -43,11 +43,12 @@ const workExperience = [
     type: "Internship",
     current: false,
     highlights: [
+      "Honoured with Certificate of Appreciation by Honourable DGP Sri Harish Kumar Gupta, I.P.S. & Guntur SP Sri Vakul Jindal, I.P.S. for valuable contributions to the AP Police Department.",
       "Engineered backend services and AI integration for state law enforcement automation initiatives.",
       "Contributed to Project Dharma — an AI-powered case management and document indexing system featured on ETV News.",
       "Developed key features for SafeStay (guest registry portal) and Centralised Drone Monitoring Portal (CDMP).",
     ],
-    projects: ["Project Dharma (ETV Featured)", "SafeStay", "CDMP Portal"],
+    projects: ["SafeStay (Commended by DGP & SP)", "Project Dharma (ETV Featured)", "CDMP Portal"],
     stack: ["FastAPI", "Python", "PostgreSQL", "Flutter", "React.js", "REST APIs"],
   },
   {
