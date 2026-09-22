@@ -23,42 +23,7 @@ const projects = [
     image: "al.png",
    
   },
-  {
-    name: "Portfolio",
-    description: "My personal portfolio",
-    link: "https://myportfolio-adr.vercel.app/",
-    Role: "Frontend",
-    stack: "MERN Stack",
-    image: "prof.png",
-    
-  },
-  {
-    name: "Martex",
-    description: "Marketing website (Cloned Website)",
-    link: "https://martex-clone.vercel.app/",
-    Role: "Frontend",
-    stack: "HTML, CSS, JS, Tailwindcss",
-    image: "martex.png",
-    
-  },
-  {
-    name: "Gigo",
-    description: "Cloned Website",
-    link: "https://gigo-gamma.vercel.app/",
-    Role: "Frontend",
-    stack: "HTML, CSS, JS, Tailwindcss",
-    image: "gigo.png",
-    
-  },
-  {
-    name: "Stocker",
-    description: "Cloned the Stocker Websites just Frontend",
-    link: "https://stocker-clone.vercel.app/",
-    Role: "Frontend",
-    stack: "HTML, CSS, JS, Tailwindcss",
-    image: "stocker.png",
-    
-  },
+
   {
     name: "Dashboard",
     description: "Table creation dashboard UI",
@@ -77,14 +42,7 @@ const projects = [
     image: "sb.png",
     
   },
-  // {
-  //   name: "EventArchitects",
-  //   description: "Event planning tool",
-  //   link: "#",
-  //   Role: "Frontend, Backend",
-  //   stack: "MERN Stack",
-  //   image: "https://via.placeholder.com/300x180?text=EventArchitects",
-  // },
+  
 ];
 
 

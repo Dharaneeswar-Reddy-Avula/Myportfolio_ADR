@@ -1,515 +1,507 @@
-// import React from "react";
-// const workExperienceList = [
-//   <>
-//     Intern at <b>TechBuggy</b> <br />
-//     Dec 9, 2024 to Present (Part-time)  <br />
-//     Mode:Remote <br />
-//     Role: Frontend Developer & Backend Developer <br />
-//     Tech stack: MERN STACK, Tailwind CSS
-
-//   </>,
-//   <>
-//     Freelancer - <b>SabbaFarm</b> <br />
-//     Jan 2025 - June 2025 (Part-time) <br />
-//     Role : Frontend Developer & SEO, <br />
-//      Tech stack: MERN STACK, Tailwind CSS, Material UI
-//   </>,
-//    <>
-//     Teckzite 2K25 - <b>Frontend Developer</b> <br />
-//     Jan 2025 - March 2025 (Part-time) <br />
-//     Role : Frontend Developer, <br />
-//      Tech stack: MERN STACK, Tailwind CSS
-//   </>
-// ];
-// const educationList = [
-//   <>
-//     <b>Co-curricular Activities:</b> National Service Scheme Volunteer <br />
-//     Rajiv Gandhi University of Knowledge Technologies, Nuzvid <br />
-//     <i>(June 2024 - Present)</i>
-//   </>,
-//   <>
-//     <b>Currently Studying:</b> BTech 3rd Year, CSE <br />
-//     Rajiv Gandhi University of Knowledge Technologies, Nuzvid <br />
-//     <i>(July 2025 - April 2026)</i>
-//   </>,
-//   <>
-//     <b>Pre-University Course:</b> <br />
-//     Rajiv Gandhi University of Knowledge Technologies, Nuzvid <br />
-//     <i>(Nov 2021 - Aug 2023)</i>
-//   </>,
-//   <>
-//     <b>SSC:</b> <br />
-//     St. Antony's E.M High School, Kadapa <br />
-//     <i>(June 2020 - April 2021)</i>
-//   </>
-// ];
-
-// const About = () => {
-//   return (
-//     // <div className="min-h-screen w-full bg-[#141c27] font-poppins pt-[140px] pb-[50px] md:px-[90px] flex flex-col md:flex-row gap-10 md:gap-[100px]">
-//     //   <div className="md:w-2/3 ">
-//     //     <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-100px] mx-5 pl-[30px]">ACADEMICS</h1>
-//     //     <section className="about w-full  md:px-[20px] flex flex-col gap-[20px] shadow-xxl ">
-//     //       <div className="detais-wrap flex flex-col md:gap-[10px]  rounded-lg shadow-lg p-[10px] md:p-[20px]">
-//     //         <div className="education-skillwrap flex flex-wrap pl-[10px] justify-between">
-//     //           <div className="education shadow-lg p-[10px] rounded-lg w-full">
-//     //             <h1 className="text-[20px] font-bold mb-[20px] text-white">
-//     //               My Education
-//     //             </h1>
-//     //             <ul className="myedu flex flex-col gap-[20px] w-full relative after:absolute after:h-full after:w-[3px] after:top-0 after:bg-[#55e6a5]  rounded-lg p-[10px] after:left-[-10px] md:after:left-[-20px]">
-//     //               <li className="border-[1px] text-white border-[#55e6a5] p-[10px] rounded-lg relative after:absolute after:h-[20px] after:w-[20px] after:bg-[#55e6a5] after:rounded-full after:left-[-30px] md:after:left-[-40px]">
-//     //                 Currently Studying: BTech 3rd year, CSE, Rajiv Gandhi University of Knowledge Technologies, NUZVID (July 2025- April 2026)
-//     //               </li>
-
-//     //               <li className="border-[1px] text-white border-[#55e6a5] p-[10px] rounded-lg relative after:absolute after:h-[20px] after:w-[20px] after:bg-[#55e6a5] after:rounded-full after:left-[-30px] md:after:left-[-40px]">
-//     //                Pre-University Course: Rajiv Gandhi University of Knowledge Technologies, Nuzvid (November 2021- August 2023)
-//     //               </li>
-//     //               <li className="border-[1px] text-white border-[#55e6a5] p-[10px] rounded-lg relative after:absolute after:h-[20px] after:w-[20px] after:bg-[#55e6a5] after:rounded-full after:left-[-30px] md:after:left-[-40px]">
-//     //                 SSC: St. Antony's E.M High School, Kadapa (June 2020- April 2021)
-//     //               </li>
-//     //             </ul>
-//     //           </div>
-//     //           <div className="mt-2 mx-6 w-full">
-//     //             <h3 className="text-white font-bold text-[20px] mb-[20px]">
-//     //            Work   Experience
-//     //             </h3>
-//     //             <div className="border-[1px] text-white border-[#55e6a5] p-[10px] rounded-lg relative after:absolute after:h-[20px] after:w-[20px] after:bg-[#55e6a5] after:rounded-full after:left-[-30px] md:after:left-[-40px]">
-//     //               Intern at TechBuggy  - DEC 9, 2024 to Present (Par-time)
-//     //             </div>
-//     //           </div>
-//     //         </div>
-//     //       </div>
-//     //     </section>
-//     //   </div>
-//     //   {/* <div>
-//     //     <div className="flex flex-col items-center">
-//     //       <div className="size-[250px] md:size-[350px] bg-[#55e6a5] md:ml-[90px] relative flex items-end justify-center">
-//     //         <div className="md:h-[370px] md:w-[350px] bg-[#131311] absolute top-5 right-5 flex flex-col items-center">
-//     //           <img src="2.png" alt="" className="scale-[1.2] md:scale-130 mt-5" />
-//     //         </div>
-//     //       </div>
-//     //       <div className="bg-white/10 backdrop-blur-lg h-[100px]  z-30 mx-2 md:ml-[50px] mt-[70px] text-white flex justify-center items-center px-[30px] rounded-md">
-//     //     <i>"Crafting clean, functional, and user-focused websites that make an impact."</i>
-//     //       </div>
-//     //     </div>
-//     //   </div> */}
-//     // </div>
-//     //     <div className="min-h-screen w-full bg-[#141c27] font-poppins pt-[140px] pb-[50px] md:px-[90px] flex flex-col md:flex-row gap-10 md:gap-[100px]">
-//     //   {/* Left Section - Academics */}
-//     //   <div className="md:w-2/3">
-//     //     <h1 className="text-[#55e6a5] text-2xl font-semibold relative pl-[30px] mb-6">
-//     //       <span className="relative before:absolute before:h-[2px] before:w-[80px] before:bg-[#55e6a5] before:top-3 before:left-[-100px]">
-//     //         ACADEMICS
-//     //       </span>
-//     //     </h1>
-
-//     //     <section className="about w-full flex flex-col gap-6 bg-[#1b2735]/80 backdrop-blur-lg p-6 rounded-xl shadow-xl">
-//     //       <div className="education-skillwrap flex flex-col gap-8">
-//     //         {/* Education Block */}
-//     //         <div className="education w-full">
-//     //           <h2 className="text-xl font-bold text-white mb-4 border-b border-[#55e6a5]/50 pb-2">
-//     //             My Education
-//     //           </h2>
-//     //           <ul className="relative pl-6 md:pl-8 flex flex-col gap-6 border-l-[3px] border-[#55e6a5]">
-//     //             {[
-//     //               "Currently Studying: BTech 3rd year, CSE, Rajiv Gandhi University of Knowledge Technologies, NUZVID (July 2025 - April 2026)",
-//     //               "Pre-University Course: Rajiv Gandhi University of Knowledge Technologies, Nuzvid (Nov 2021 - Aug 2023)",
-//     //               "SSC: St. Antony's E.M High School, Kadapa (June 2020 - April 2021)",
-//     //             ].map((edu, i) => (
-//     //               <li
-//     //                 key={i}
-//     //                 className="relative text-white bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm"
-//     //               >
-//     //                 <span className="absolute top-4 left-[-30px] h-4 w-4 bg-[#55e6a5] rounded-full border-[3px] border-[#141c27]"></span>
-//     //                 {edu}
-//     //               </li>
-//     //             ))}
-//     //           </ul>
-//     //         </div>
-
-//     //         {/* Work Experience */}
-
-//     //       </div>
-//     //     </section>
-//     //   </div>
-
-//     //   {/* Right Visual Section (optional avatar/quote) */}
-//     //   <div className="w-full md:w-[35%] flex flex-col items-center gap-10 ">
-//     //     {/* <div className="relative w-[250px] md:w-[350px] h-[250px] md:h-[350px] bg-[#55e6a5] rounded-xl overflow-hidden shadow-2xl">
-//     //       <div className="absolute top-4 right-4 w-full h-full bg-[#131311] flex items-center justify-center rounded-xl">
-//     //         <img
-//     //           src="2.png"
-//     //           alt="avatar"
-//     //           className="h-[70%] object-contain scale-[1.2]"
-//     //         />
-//     //       </div>
-//     //     </div>
-//     //     <div className="bg-white/10 backdrop-blur-md p-6 text-white text-center rounded-md shadow-md w-full max-w-[320px]">
-//     //       <i>
-//     //         "Crafting clean, functional, and user-focused websites that make an
-//     //         impact."
-//     //       </i>
-//     //     </div> */}
-//     //       <div className="work w-full">
-//     //           <h2 className="text-xl font-bold text-white mb-4 border-b border-[#55e6a5]/50 pb-2">
-//     //             Work Experience
-//     //           </h2>
-//     //           <div className="relative pl-6 md:pl-8">
-//     //             <div className="relative text-white bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm">
-//     //               <span className="absolute top-4 left-[-30px] h-4 w-4 bg-[#55e6a5] rounded-full border-[3px] border-[#141c27]"></span>
-//     //               Intern at <b>TechBuggy</b> – <i>Dec 9, 2024 to Present (Part-time)</i>
-//     //             </div>
-//     //           </div>
-//     //         </div>
-//     //   </div>
-//     // </div>
-
-//     <div className="min-h-screen w-full bg-[#141c27] font-poppins pt-[140px] pb-[50px] md:px-[90px]  gap-10 md:gap-[50px] items-center">
-//       {/* Left Section - Academics */}
-//         <h1 className="text-[#55e6a5] text-2xl font-semibold relative pl-[30px] mb-6">
-//           <span className="relative before:absolute before:h-[2px] before:w-[80px] before:bg-[#55e6a5] before:top-3 before:left-[-100px]">
-//             ACADEMICS
-//           </span>
-//         </h1>
-
-//       <div className="px-2">
-
-//         <section className="about w-full flex flex-col gap-6 bg-[#1b2735]/80 backdrop-blur-lg p-6 rounded-xl shadow-xl">
-//           <div className="education-skillwrap flex flex-col gap-4">
-//             {/* Education Block */}
-//             <div className="education w-full">
-//               <h2 className="text-xl font-bold text-white mb-4 border-b border-[#55e6a5]/50 pb-2">
-//                 My Education
-//               </h2>
-//               <ul className="relative pl-6 md:pl-8 flex flex-col gap-6 border-l-[3px] border-[#55e6a5]">
-//                 {educationList.map((edu, i) => (
-//                   <li
-//                     key={i}
-//                     className="relative text-white bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm"
-//                   >
-//                     <span className="absolute top-4 left-[-35px] h-4 w-4 bg-[#55e6a5] rounded-full border-[3px] border-[#141c27]"></span>
-//                     {edu}
-//                   </li>
-//                 ))}
-//               </ul>
-//             </div>
-//           </div>
-//         </section>
-
-//       <section className="about experience-wrap mt-14  flex flex-col gap-6 bg-[#1b2735]/80 backdrop-blur-lg p-6 rounded-xl shadow-xl">
-//         <div className="experience flex flex-col gap-4">
-//           {/* Education Block */}
-//           <div className="education w-full">
-//             <h2 className="text-xl font-bold text-white mb-4 border-b border-[#55e6a5]/50 pb-2">
-//               Work Experience
-//             </h2>
-//             <ul className="relative pl-6 md:pl-8 flex flex-col gap-6 border-l-[3px] border-[#55e6a5]">
-//               {workExperienceList.map((edu, i) => (
-//                 <li
-//                   key={i}
-//                   className="relative text-white bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm"
-//                 >
-//                   <span className="absolute top-4 left-[-35px] h-4 w-4 bg-[#55e6a5] rounded-full border-[3px] border-[#141c27]"></span>
-//                   {edu}
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-//         </div>
-//       </section>
-
-//        </div>
-//      </div>
-//   );
-// };
-
-// export default About;
-
 import React, { useState } from "react";
+import {
+  FaBriefcase,
+  FaGraduationCap,
+  FaAward,
+  FaStar,
+  FaCalendar,
+  FaBuilding,
+  FaLocationDot,
+  FaArrowUpRightFromSquare,
+  FaUserTie,
+  FaLanguage,
+  FaHandshake,
+  FaClock,
+  FaMicrophone,
+  FaPuzzlePiece,
+  FaUsers,
+  FaCheck,
+} from "react-icons/fa6";
 
+/* ─── Work Experience Data ────────────────────────────────────────── */
+const workExperience = [
+  {
+    role: "Associate Software Engineer",
+    company: "Ziplflex Technologies LLP",
+    duration: "Aug 2026 – Present",
+    mode: "Hybrid",
+    type: "Full-Time",
+    current: true,
+    highlights: [
+      "Architecting and developing production backend microservices and high-throughput REST APIs using Python & FastAPI.",
+      "Engineering full-stack web platforms and integrating Generative AI / RAG workflows for intelligent data retrieval.",
+      "Collaborating on database modeling, scalable API design, and cloud deployments.",
+    ],
+    projects: [],
+    stack: ["FastAPI", "Python", "MERN Stack", "RAG", "Generative AI", "REST APIs"],
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Andhra Pradesh Police",
+    duration: "Oct 2025 – Aug 2026",
+    mode: "Hybrid",
+    type: "Internship",
+    current: false,
+    highlights: [
+      "Engineered backend services and AI integration for state law enforcement automation initiatives.",
+      "Contributed to Project Dharma — an AI-powered case management and document indexing system featured on ETV News.",
+      "Developed key features for SafeStay (guest registry portal) and Centralised Drone Monitoring Portal (CDMP).",
+    ],
+    projects: ["Project Dharma (ETV Featured)", "SafeStay", "CDMP Portal"],
+    stack: ["FastAPI", "Python", "PostgreSQL", "Flutter", "React.js", "REST APIs"],
+  },
+  {
+    role: "Full-Stack Developer Intern",
+    company: "TechBuggy",
+    duration: "Dec 2024 – Jan 2026",
+    mode: "Remote",
+    type: "Part-time",
+    current: false,
+    highlights: [
+      "Developed full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
+      "Built responsive, accessible frontend interfaces with Tailwind CSS and modern React components.",
+      "Designed database schemas, authentication middleware, and integrated client-facing REST APIs.",
+    ],
+    projects: [],
+    stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+  },
+  {
+    role: "Freelance Frontend Developer & SEO",
+    company: "SabbaFarm",
+    duration: "Jan 2025 – Jun 2025",
+    mode: "Remote",
+    type: "Part-time",
+    current: false,
+    highlights: [
+      "Engineered the complete responsive web platform for a smart agriculture enterprise using React and Tailwind CSS.",
+      "Implemented full-spectrum technical SEO, meta structures, and performance optimizations for search ranking.",
+      "Delivered clean component architecture and smooth cross-device user experiences.",
+    ],
+    projects: ["SabbaFarm Web Portal"],
+    stack: ["React.js", "MERN Stack", "Tailwind CSS", "Material UI", "SEO"],
+  },
+  {
+    role: "Frontend Developer",
+    company: "Techzite 2K25",
+    duration: "Jan 2025 – Mar 2025",
+    mode: "On-site",
+    type: "Part-time",
+    current: false,
+    highlights: [
+      "Developed core web modules for South India's premier annual techno-management fest at RGUKT Nuzvid.",
+      "Built interactive student event registration workflows, responsive schedules, and animated landing interfaces.",
+    ],
+    projects: ["Techzite 2K25 Portal"],
+    stack: ["React.js", "Tailwind CSS", "JavaScript", "MERN"],
+  },
+];
+
+/* ─── Education Data ──────────────────────────────────────────────── */
+const educationList = [
+  {
+    degree: "B.Tech — Computer Science & Engineering (4th Year)",
+    institution: "Rajiv Gandhi University of Knowledge Technologies (RGUKT), Nuzvid",
+    duration: "July 2025 – April 2026",
+    grade: "8.45 / 10 CGPA",
+    status: "Currently Studying",
+    description:
+      "Undergraduate engineering program focusing on advanced computer science foundations, algorithm design, software architecture, and modern full-stack application development.",
+    coursework: [
+      "Data Structures & Algorithms",
+      "Operating Systems",
+      "Database Management Systems (DBMS)",
+      "Computer Networks",
+      "Object-Oriented Programming (Java)",
+      "FastAPI & Full-Stack Development",
+    ],
+  },
+  {
+    degree: "Pre-University Course (PUC — M.P.C)",
+    institution: "Rajiv Gandhi University of Knowledge Technologies (RGUKT), Nuzvid",
+    duration: "Nov 2021 – Aug 2023",
+    grade: "9.72 / 10 CGPA",
+    status: "Completed with High Distinction",
+    description:
+      "Two-year integrated pre-engineering program covering advanced Mathematics, Physics, and Chemistry. Admitted on state-level academic merit.",
+    coursework: ["Advanced Mathematics", "Physics", "Chemistry", "Computer Science Fundamentals"],
+  },
+  {
+    degree: "Secondary School Certificate (SSC — 10th Standard)",
+    institution: "St. Antony's E.M High School, Kalasapadu, Kadapa (Dist)",
+    duration: "June 2020 – April 2021",
+    grade: "10.0 / 10 CGPA",
+    status: "Perfect Score / School Topper",
+    description:
+      "Completed secondary school education with academic excellence and a perfect 10.0/10 CGPA.",
+    coursework: ["General Sciences", "Mathematics", "Social Studies", "English & Languages"],
+  },
+];
+
+/* ─── Certifications Data ─────────────────────────────────────────── */
+const certificationsList = [
+  {
+    title: "E-Summit'25",
+    issuer: "IIT Roorkee",
+    year: "Jan 31 – Feb 2, 2025",
+    image: "IITR CERT.png",
+    link: "https://certificate.givemycertificate.com/c/8d5f91eb-f915-43a9-a996-15df918dcbd3",
+    badge: "National Summit",
+  },
+  {
+    title: "Java 3.1: Java Programming — Object-Oriented Design",
+    issuer: "EdX & Codio",
+    year: "July 1 – Dec 31, 2024",
+    image: "edx.png",
+    link: "https://courses.edx.org/certificates/4915929bff67427494aa4f1b20efcdba",
+    badge: "Verified Certification",
+  },
+];
+
+/* ─── Strengths Beyond Tech ───────────────────────────────────────── */
+const softSkills = [
+  { label: "Effective Communication", icon: FaMicrophone },
+  { label: "Team Collaboration", icon: FaUsers },
+  { label: "Creative Problem Solving", icon: FaPuzzlePiece },
+  { label: "Adaptability & Agility", icon: FaStar },
+  { label: "Time Management", icon: FaClock },
+  { label: "Public Speaking & Demos", icon: FaMicrophone },
+];
+
+const cocurricular = [
+  {
+    activity: "National Service Scheme (NSS) Volunteer",
+    org: "Rajiv Gandhi University of Knowledge Technologies, Nuzvid",
+    duration: "June 2024 – Present",
+  },
+  {
+    activity: "Web Team Volunteer, Techzite 2K25",
+    org: "Rajiv Gandhi University of Knowledge Technologies, Nuzvid",
+    duration: "January 2025 – March 2025",
+  },
+];
+
+const languages = [
+  { lang: "English", level: "Professional Working Proficiency", pct: 85 },
+  { lang: "Telugu", level: "Native / Bilingual", pct: 100 },
+  { lang: "Hindi", level: "Conversational", pct: 50 },
+];
+
+const tabs = [
+  { id: "education", label: "My Education", icon: FaGraduationCap },
+  { id: "experience", label: "Work Experience", icon: FaBriefcase },
+  { id: "certifications", label: "Certifications", icon: FaAward },
+  { id: "strengths", label: "Strengths Beyond Tech", icon: FaStar },
+];
+
+/* ─── Main Component ──────────────────────────────────────────────── */
 const About = () => {
-  const [activeTab, setActiveTab] = useState("education"); // or 'experience'
-
-  const workExperienceList = [
-    <>
-      Intern at <b>TechBuggy</b> <br />
-      Dec 9, 2024 to Present (Part-time) <br />
-      Mode:Remote <br />
-      Role: Frontend Developer & Backend Developer <br />
-      Tech stack: MERN STACK, Tailwind CSS
-    </>,
-    <>
-      Freelancer - <b>SabbaFarm</b> <br />
-      Jan 2025 - June 2025 (Part-time) <br />
-      Role : Frontend Developer & SEO, <br />
-      Tech stack: MERN STACK, Tailwind CSS, Material UI
-    </>,
-    <>
-      Teckzite 2K25 - <b>Frontend Developer</b> <br />
-      Jan 2025 - March 2025 (Part-time) <br />
-      Role : Frontend Developer, <br />
-      Tech stack: MERN STACK, Tailwind CSS
-    </>,
-  ];
-  const educationList = [
-    <>
-      <b>Currently Studying:</b> BTech 3rd Year, CSE <br />
-      Rajiv Gandhi University of Knowledge Technologies, Nuzvid <br />
-      <i>(July 2025 - April 2026)</i> <br />
-       CGPA: 8.2/10
-    </>,
-    <>
-      <b>Pre-University Course:</b> <br />
-      Rajiv Gandhi University of Knowledge Technologies, Nuzvid <br />
-      <i>(Nov 2021 - Aug 2023)</i> <br />
-      CGPA: 9.72/10
-    </>,
-    <>
-      <b>SSC:</b> <br />
-      St. Antony's E.M High School, Kalasapadu, Kadapa (Dist) <br />
-      <i>(June 2020 - April 2021)</i> <br />
-      CGPA: 10/10
-    </>,
-  ];
-  const certificationsList = [
-    {
-      title: "E-Summit'25",
-      issuer: "IIT ROORKEE",
-      year: "31st January to 2nd February, 2025",
-      image: "IITR CERT.png", // your local/public path or URL
-      link: "https://certificate.givemycertificate.com/c/8d5f91eb-f915-43a9-a996-15df918dcbd3",
-    },
-    {
-      title: "Java3.1: Java Programming: Object-Oriented Design",
-      issuer: "EdX Codio",
-      year: "July 1st to December 31, 2024",
-      image: "edx.png", // your local/public path or URL
-      link: "https://courses.edx.org/certificates/4915929bff67427494aa4f1b20efcdba",
-    },
-  ];
+  const [activeTab, setActiveTab] = useState("education");
 
   return (
-    <div className="min-h-screen w-full bg-[#141c27] font-poppins pt-[140px] pb-[50px] md:px-[90px] gap-10 md:gap-[50px] items-center">
-    
-       <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-80px] md:before:left-[-100px] mx-5 pl-[30px] mb-[50px]">
-      Academics
+    <div className="min-h-screen w-full bg-[#141c27] font-poppins pt-[120px] pb-[50px] px-4 md:px-[90px]">
+      {/* Section Title */}
+      <h1 className="text-[#55e6a5] text-2xl font-lg relative before:absolute before:h-[2px] before:w-[100px] before:bg-[#55e6a5] before:top-4 before:left-[-80px] md:before:left-[-100px] mx-5 pl-[30px] mb-8 uppercase tracking-wider font-semibold">
+        Academics & Experience
       </h1>
 
-      <div className="px-2">
-        {/* Tab buttons */}
-        <div className="flex gap-6 mb-6 flex-wrap">
-          <button
-            onClick={() => setActiveTab("education")}
-            className={`px-4 py-2 rounded-md font-medium border ${
-              activeTab === "education"
-                ? "bg-[#55e6a5] text-[#141c27]"
-                : "bg-transparent text-white border-[#55e6a5]"
-            }`}
-          >
-            My Education
-          </button>
-          <button
-            onClick={() => setActiveTab("experience")}
-            className={`px-4 py-2 rounded-md font-medium border ${
-              activeTab === "experience"
-                ? "bg-[#55e6a5] text-[#141c27]"
-                : "bg-transparent text-white border-[#55e6a5]"
-            }`}
-          >
-            Work Experience
-          </button>
-          <button
-            onClick={() => setActiveTab("certifications")}
-            className={`px-4 py-2 rounded-md font-medium border ${
-              activeTab === "certifications"
-                ? "bg-[#55e6a5] text-[#141c27]"
-                : "bg-transparent text-white border-[#55e6a5]"
-            }`}
-          >
-            Certifications
-          </button>
-          <button
-            onClick={() => setActiveTab("Strengths Beyond Tech")}
-            className={`px-4 py-2 rounded-md font-medium border ${
-              activeTab === "Strengths Beyond Tech"
-                ? "bg-[#55e6a5] text-[#141c27]"
-                : "bg-transparent text-white border-[#55e6a5]"
-            }`}
-          >
-            Strengths Beyond Tech
-          </button>
-          {/* <button
-            onClick={() => setActiveTab("certifications")}
-            className={`px-4 py-2 rounded-md font-medium border ${
-              activeTab === "certifications"
-                ? "bg-[#55e6a5] text-[#141c27]"
-                : "bg-transparent text-white border-[#55e6a5]"
-            }`}
-          >
-            Certifications
-          </button> */}
+      <div className="max-w-6xl">
+        {/* Navigation Tabs */}
+        <div className="flex flex-wrap gap-2.5 mb-8 p-1.5 bg-[#101824] border border-slate-700/60 rounded-xl w-fit">
+          {tabs.map(({ id, label, icon: Icon }) => {
+            const isActive = activeTab === id;
+            return (
+              <button
+                key={id}
+                onClick={() => setActiveTab(id)}
+                className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                  isActive
+                    ? "bg-[#55e6a5] text-[#141c27] shadow-md shadow-[#55e6a5]/20 font-bold"
+                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                <Icon className={isActive ? "text-[#141c27]" : "text-[#55e6a5]"} />
+                <span>{label}</span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Education Tab Content */}
+        {/* ─── TAB 1: EDUCATION ───────────────────────────────────────── */}
         {activeTab === "education" && (
-          <section className="about w-full flex flex-col gap-6 bg-[#1b2735]/80 backdrop-blur-lg p-6 rounded-xl shadow-xl">
-            <div className="education-skillwrap flex flex-col gap-4">
-              <div className="education w-full">
-                <h2 className="text-xl font-bold text-white mb-4 border-b border-[#55e6a5]/50 pb-2">
-                  My Education
-                </h2>
-                <ul className="relative pl-6 md:pl-8 flex flex-col gap-6 border-l-[3px] border-[#55e6a5]">
-                  {educationList.map((edu, i) => (
-                    <li
-                      key={i}
-                      className="relative text-white bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm"
-                    >
-                      <span className="absolute top-4 left-[-35px] h-4 w-4 bg-[#55e6a5] rounded-full border-[3px] border-[#141c27]"></span>
-                      {edu}
-                    </li>
-                  ))}
-                </ul>
+          <div className="flex flex-col gap-6">
+            {educationList.map((edu, idx) => (
+              <div
+                key={idx}
+                className="bg-[#182332]/90 border border-slate-700/70 hover:border-[#55e6a5]/50 transition-all duration-200 rounded-2xl p-6 md:p-7 shadow-xl"
+              >
+                {/* Header Row: Degree + Duration */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 pb-4 border-b border-slate-700/60 mb-5">
+                  <div>
+                    <h2 className="text-white text-xl md:text-2xl font-bold tracking-tight mb-1">
+                      {edu.degree}
+                    </h2>
+                    <p className="text-[#55e6a5] font-semibold text-sm md:text-base flex items-center gap-2">
+                      <FaBuilding className="text-xs text-[#55e6a5]" />
+                      <span>{edu.institution}</span>
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#101824] border border-slate-700/80 text-slate-200 text-xs font-mono">
+                      <FaCalendar className="text-[11px] text-[#55e6a5]" />
+                      {edu.duration}
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1 rounded-md bg-[#55e6a5]/15 border border-[#55e6a5]/40 text-[#55e6a5] text-xs font-bold font-mono">
+                      {edu.grade}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-slate-200 text-sm md:text-[15px] leading-relaxed mb-5">
+                  {edu.description}
+                </p>
+
+                {/* Relevant Coursework */}
+                <div>
+                  <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2.5">
+                    Core Coursework &amp; Specialization:
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {edu.coursework.map((course, cIdx) => (
+                      <span
+                        key={cIdx}
+                        className="text-xs font-medium text-slate-200 bg-[#101824] border border-slate-700/80 px-3 py-1 rounded-md hover:border-[#55e6a5]/40 transition"
+                      >
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </section>
+            ))}
+          </div>
         )}
 
-        {/* Experience Tab Content */}
+        {/* ─── TAB 2: WORK EXPERIENCE ─────────────────────────────────── */}
         {activeTab === "experience" && (
-          <section className="about experience-wrap mt-6 flex flex-col gap-6 bg-[#1b2735]/80 backdrop-blur-lg p-6 rounded-xl shadow-xl">
-            <div className="experience flex flex-col gap-4">
-              <div className="education w-full">
-                <h2 className="text-xl font-bold text-white mb-4 border-b border-[#55e6a5]/50 pb-2">
-                  Work Experience
-                </h2>
-                <ul className="relative pl-6 md:pl-8 flex flex-col gap-6 border-l-[3px] border-[#55e6a5]">
-                  {workExperienceList.map((work, i) => (
-                    <li
-                      key={i}
-                      className="relative text-white bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm"
-                    >
-                      <span className="absolute top-4 left-[-35px] h-4 w-4 bg-[#55e6a5] rounded-full border-[3px] border-[#141c27]"></span>
-                      {work}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
-        )}
-        {activeTab === "certifications" && (
-          <section className="about w-full flex flex-col gap-6 bg-[#1b2735]/80 backdrop-blur-lg p-6 rounded-xl shadow-xl">
-            <h2 className="text-xl font-bold text-white mb-4 border-b border-[#55e6a5]/50 pb-2">
-              Certifications
-            </h2>
-            <ul className="relative pl-6 md:pl-8 flex flex-col gap-6 border-l-[3px] border-[#55e6a5]">
-              {certificationsList.map((cert, i) => (
-                <li
-                  key={i}
-                  className="relative text-white bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm flex flex-col md:flex-row gap-4"
-                >
-                  <span className="absolute top-4 left-[-35px] h-4 w-4 bg-[#55e6a5] rounded-full border-[3px] border-[#141c27]"></span>
+          <div className="flex flex-col gap-6">
+            {workExperience.map((job, idx) => (
+              <div
+                key={idx}
+                className="bg-[#182332]/90 border border-slate-700/70 hover:border-[#55e6a5]/50 transition-all duration-200 rounded-2xl p-6 md:p-7 shadow-xl"
+              >
+                {/* Header Row: Role, Company, and Metadata */}
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 pb-4 border-b border-slate-700/60 mb-5">
+                  <div>
+                    <div className="flex items-center gap-3 flex-wrap mb-1">
+                      <h2 className="text-white text-xl md:text-2xl font-bold tracking-tight">
+                        {job.role}
+                      </h2>
+                      {job.current && (
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#55e6a5]/15 border border-[#55e6a5]/40 text-[#55e6a5] text-[11px] font-bold font-mono">
+                          <span className="size-1.5 rounded-full bg-[#55e6a5] animate-pulse" />
+                          PRESENT
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[#55e6a5] font-semibold text-base md:text-lg flex items-center gap-2">
+                      <FaBuilding className="text-xs text-[#55e6a5]" />
+                      <span>{job.company}</span>
+                    </p>
+                  </div>
 
-                  {/* Certificate Image */}
+                  {/* Metadata Chips: Duration, Mode, Type */}
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#101824] border border-slate-700/80 text-slate-200 text-xs font-mono">
+                      <FaCalendar className="text-[11px] text-[#55e6a5]" />
+                      {job.duration}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#101824] border border-slate-700/80 text-slate-300 text-xs">
+                      <FaLocationDot className="text-[11px] text-slate-400" />
+                      {job.mode}
+                    </span>
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-slate-300 text-xs font-medium">
+                      {job.type}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Key Engineering Responsibilities / Highlights */}
+                <div className="mb-5">
+                  <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2.5">
+                    Engineering Highlights &amp; Responsibilities:
+                  </h4>
+                  <ul className="space-y-2">
+                    {job.highlights.map((point, pIdx) => (
+                      <li
+                        key={pIdx}
+                        className="flex items-start gap-2.5 text-slate-200 text-sm md:text-[15px] leading-relaxed"
+                      >
+                        <span className="text-[#55e6a5] text-xs mt-1.5 flex-shrink-0">◆</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Notable Projects (if any) */}
+                {job.projects.length > 0 && (
+                  <div className="mb-5 p-3.5 rounded-xl bg-[#101824] border border-slate-700/80 flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                      Key Projects:
+                    </span>
+                    {job.projects.map((proj, prIdx) => (
+                      <span
+                        key={prIdx}
+                        className="text-xs font-semibold px-2.5 py-1 rounded-md bg-[#55e6a5]/10 border border-[#55e6a5]/30 text-[#55e6a5]"
+                      >
+                        {proj}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Tech Stack */}
+                <div>
+                  <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">
+                    Tech Stack:
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {job.stack.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-xs font-medium text-slate-200 bg-[#101824] border border-slate-700/80 px-2.5 py-1 rounded-md hover:border-[#55e6a5]/40 transition"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ─── TAB 3: CERTIFICATIONS ──────────────────────────────────── */}
+        {activeTab === "certifications" && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {certificationsList.map((cert, i) => (
+              <div
+                key={i}
+                className="bg-[#182332]/90 border border-slate-700/70 hover:border-[#55e6a5]/50 transition-all duration-200 rounded-2xl overflow-hidden shadow-xl flex flex-col"
+              >
+                {/* Certificate Preview Image */}
+                <div className="relative h-48 bg-[#0e1622] flex items-center justify-center p-4 border-b border-slate-700/60">
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full md:w-40 h-auto rounded-md border border-[#55e6a5]/30"
+                    className="max-h-full max-w-full object-contain rounded"
                   />
-
-                  {/* Certificate Info */}
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold">{cert.title}</h3>
-                    <p className="text-sm text-[#aaaaaa]">
-                      {cert.issuer} — {cert.year}
-                    </p>
-                    {cert.link && (
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#55e6a5] underline inline-block mt-2"
-                      >
-                        View Certificate
-                      </a>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-        {activeTab === "Strengths Beyond Tech" && (
-          <section className="about w-full flex flex-col gap-6 bg-[#1b2735]/80 backdrop-blur-lg p-6 rounded-xl shadow-xl">
-            <h2 className="text-xl font-bold text-white mb-4 border-b border-[#55e6a5]/50 pb-2">
-              Soft Skills & Personal Highlights
-            </h2>
-
-            <div className="flex flex-col md:flex-row gap-6 w-full">
-              {/* Left Side: Soft Skills */}
-              <div className="softskills w-full md:w-2/3">
-                <ul className="relative pl-6 md:pl-8 flex flex-col gap-6 border-l-[3px] border-[#55e6a5]">
-                  {[
-                    "Effective Communication",
-                    "Team Collaboration",
-                    "Creative Problem Solving",
-                    "Adaptability",
-                    "Time Management",
-                    "Public Speaking",
-                  ].map((skill, index) => (
-                    <li
-                      key={index}
-                      className="relative text-white bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm"
-                    >
-                      <span className="absolute top-4 left-[-35px] h-4 w-4 bg-[#55e6a5] rounded-full border-[3px] border-[#141c27]"></span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Right Side: Co-curricular + Languages */}
-              <div className="extras w-full md:w-1/3 flex flex-col gap-6 text-white">
-                {/* Co-curricular Activities */}
-                <div className="bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm">
-                  <h3 className="text-lg font-semibold text-[#55e6a5] mb-2">
-                    Co-curricular Activities
-                  </h3>
-                  <p className="text-white font-medium">
-                    National Service Scheme Volunteer
-                  </p>
-                  <p className="text-sm text-gray-400">
-                    Rajiv Gandhi University of Knowledge Technologies, Nuzvid
-                  </p>
-                  <p className="text-sm italic text-gray-400">
-                    (June 2024 - Present)
-                  </p> <br />
-
-                   <p className="text-white font-medium">
-                    Web Team Volunteer, Teckzite 2k25
-                  </p>
-                  <p className="text-sm text-gray-400">
-                    Rajiv Gandhi University of Knowledge Technologies, Nuzvid
-                  </p>
-                  <p className="text-sm italic text-gray-400">
-                    (January 2025 - March 2025)
-                  </p>
+                  <span className="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-md bg-[#55e6a5] text-[#141c27]">
+                    {cert.badge}
+                  </span>
                 </div>
 
-                {/* Languages Spoken */}
-                <div className="bg-[#141c27]/50 p-4 rounded-md border border-[#55e6a5]/30 shadow-sm">
-                  <h3 className="text-lg font-semibold text-[#55e6a5] mb-2">
-                    Languages Spoken
-                  </h3>
-                  <ul className="list-disc list-inside text-gray-300 text-sm">
-                    <li>English - Proficient</li>
-                    <li>Telugu - Native</li>
-                    <li>Hindi - Basic Conversational</li>
-                  </ul>
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-1 justify-between gap-4">
+                  <div>
+                    <h3 className="text-white font-bold text-lg mb-1 leading-snug">
+                      {cert.title}
+                    </h3>
+                    <p className="text-[#55e6a5] font-semibold text-sm mb-1">{cert.issuer}</p>
+                    <p className="text-slate-400 text-xs flex items-center gap-1.5 font-mono">
+                      <FaCalendar className="text-[10px]" />
+                      {cert.year}
+                    </p>
+                  </div>
+
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#55e6a5]/10 hover:bg-[#55e6a5] text-[#55e6a5] hover:text-[#141c27] border border-[#55e6a5]/40 hover:border-[#55e6a5] font-semibold text-sm transition-all duration-200"
+                  >
+                    <span>View Certificate</span>
+                    <FaArrowUpRightFromSquare className="text-xs" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ─── TAB 4: STRENGTHS BEYOND TECH ───────────────────────────── */}
+        {activeTab === "strengths" && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Left: Soft Skills Grid */}
+            <div className="lg:col-span-7 bg-[#182332]/90 border border-slate-700/70 rounded-2xl p-6 md:p-7 shadow-xl">
+              <h2 className="text-white font-bold text-lg mb-5 flex items-center gap-2.5">
+                <FaUserTie className="text-[#55e6a5]" />
+                <span>Professional Soft Skills</span>
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {softSkills.map(({ label, icon: Icon }, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 p-3.5 rounded-xl bg-[#101824] border border-slate-700/80 hover:border-[#55e6a5]/40 transition duration-200"
+                  >
+                    <div className="size-9 rounded-lg bg-[#55e6a5]/10 border border-[#55e6a5]/30 flex items-center justify-center flex-shrink-0">
+                      <Icon className="text-[#55e6a5] text-sm" />
+                    </div>
+                    <span className="text-slate-200 text-sm font-medium">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Co-Curricular & Languages */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              {/* Co-Curricular */}
+              <div className="bg-[#182332]/90 border border-slate-700/70 rounded-2xl p-6 shadow-xl">
+                <h2 className="text-white font-bold text-base mb-4 flex items-center gap-2">
+                  <FaHandshake className="text-[#55e6a5]" />
+                  <span>Co-Curricular Leadership</span>
+                </h2>
+                <div className="flex flex-col gap-3.5">
+                  {cocurricular.map((item, i) => (
+                    <div
+                      key={i}
+                      className="p-3.5 rounded-xl bg-[#101824] border border-slate-700/80"
+                    >
+                      <p className="text-white font-semibold text-sm">{item.activity}</p>
+                      <p className="text-slate-400 text-xs mt-1">{item.org}</p>
+                      <p className="text-[#55e6a5] text-xs font-mono mt-1">{item.duration}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Languages */}
+              <div className="bg-[#182332]/90 border border-slate-700/70 rounded-2xl p-6 shadow-xl">
+                <h2 className="text-white font-bold text-base mb-4 flex items-center gap-2">
+                  <FaLanguage className="text-[#55e6a5]" />
+                  <span>Languages Spoken</span>
+                </h2>
+                <div className="flex flex-col gap-4">
+                  {languages.map(({ lang, level, pct }, i) => (
+                    <div key={i}>
+                      <div className="flex justify-between items-center mb-1.5 text-xs">
+                        <span className="text-slate-200 font-semibold">{lang}</span>
+                        <span className="text-slate-400">{level}</span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-[#55e6a5]"
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         )}
       </div>
     </div>

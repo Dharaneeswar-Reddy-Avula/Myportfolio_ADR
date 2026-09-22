@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Achievements from "./components/Achievements";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import Background from "./components/Background";
@@ -138,6 +139,9 @@ const App = () => {
           </div>
           <div id="projects" className="scroll-mt-[50px]">
             <Projects />
+          </div>
+          <div id="achievements" className="scroll-mt-[50px]">
+            <Achievements />
           </div>
           <div id="contact" className="scroll-mt-[100px]">
             <ContactForm />

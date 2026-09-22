@@ -20,42 +20,7 @@ const Test = () => {
     image: "al.png",
    
   },
-  {
-    name: "Portfolio",
-    description: "My personal portfolio",
-    link: "https://myportfolio-adr.vercel.app/",
-    Role: "Frontend",
-    stack: "MERN Stack",
-    image: "prof.png",
-    
-  },
-  {
-    name: "Martex",
-    description: "Marketing website (Cloned Website)",
-    link: "https://martex-clone.vercel.app/",
-    Role: "Frontend",
-    stack: "HTML, CSS, JS, Tailwindcss",
-    image: "martex.png",
-    
-  },
-  {
-    name: "Gigo",
-    description: "Cloned Website",
-    link: "https://gigo-gamma.vercel.app/",
-    Role: "Frontend",
-    stack: "HTML, CSS, JS, Tailwindcss",
-    image: "gigo.png",
-    
-  },
-  {
-    name: "Stocker",
-    description: "Cloned the Stocker Websites just Frontend",
-    link: "https://stocker-clone.vercel.app/",
-    Role: "Frontend",
-    stack: "HTML, CSS, JS, Tailwindcss",
-    image: "stocker.png",
-    
-  },
+ 
   {
     name: "Dashboard",
     description: "Table creation dashboard UI",
