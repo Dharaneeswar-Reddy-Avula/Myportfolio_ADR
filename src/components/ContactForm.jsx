@@ -10,6 +10,7 @@ import {
   FaFilePdf,
   FaCheck,
   FaCopy,
+  FaCircleExclamation,
 } from "react-icons/fa6";
 import { MdFileDownload, MdArrowOutward } from "react-icons/md";
 
@@ -21,7 +22,8 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
-  const [status, setStatus] = useState("idle"); // 'idle' | 'sending' | 'success'
+  const [status, setStatus] = useState("idle"); // 'idle' | 'sending' | 'success' | 'error'
+  const [responseMessage, setResponseMessage] = useState("");
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const downloadResume = () => {
@@ -43,26 +45,53 @@ const ContactForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
+    setResponseMessage("");
 
-    // Construct mailto link with pre-filled subject and body
-    const subject = encodeURIComponent(
-      formData.subject || `Inquiry from ${formData.name || "Portfolio Visitor"}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "N/A"}\n\nMessage:\n${formData.message}`
-    );
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/avuladharaniswarreddy@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || "Not provided",
+          subject: formData.subject || `New Portfolio Inquiry from ${formData.name}`,
+          message: formData.message,
+          _subject: `New Portfolio Message from ${formData.name}: ${formData.subject || "General Inquiry"}`,
+          _replyto: formData.email,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
 
-    setTimeout(() => {
-      window.location.href = `mailto:avuladharaniswarreddy@gmail.com?subject=${subject}&body=${body}`;
-      setStatus("success");
-      setTimeout(() => {
-        setStatus("idle");
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setResponseMessage(
+          "Thank you! Your message has been sent directly to Dharaneeswar's email. He will get back to you shortly."
+        );
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      }, 4000);
-    }, 600);
+        setTimeout(() => {
+          setStatus("idle");
+          setResponseMessage("");
+        }, 8000);
+      } else {
+        throw new Error(data?.message || "Failed to send message");
+      }
+    } catch (err) {
+      console.error("Contact Form submission error:", err);
+      setStatus("error");
+      setResponseMessage(
+        "Oops! Something went wrong while delivering your message. Please reach out directly at avuladharaniswarreddy@gmail.com."
+      );
+    }
   };
 
   return (
@@ -173,19 +202,46 @@ const ContactForm = () => {
 
             {/* Success Message Banner */}
             {status === "success" && (
-              <div className="p-3 bg-[#55e6a5]/10 border border-[#55e6a5]/40 rounded-xl flex items-center gap-2 text-xs font-semibold text-[#55e6a5]">
-                <FaCheck className="text-sm flex-shrink-0" />
-                <span>Message drafted! Opening your email client to send directly.</span>
+              <div className="p-3.5 bg-[#55e6a5]/10 border border-[#55e6a5]/40 rounded-xl flex items-start gap-2.5 text-xs font-semibold text-[#55e6a5]">
+                <FaCheck className="text-sm flex-shrink-0 mt-0.5" />
+                <div>
+                  <p>{responseMessage}</p>
+                </div>
+              </div>
+            )}
+
+            {/* Error Message Banner */}
+            {status === "error" && (
+              <div className="p-3.5 bg-red-500/10 border border-red-500/30 rounded-xl flex items-start gap-2.5 text-xs font-semibold text-red-400">
+                <FaCircleExclamation className="text-sm flex-shrink-0 mt-0.5" />
+                <div>
+                  <p>{responseMessage}</p>
+                  <a
+                    href={`mailto:avuladharaniswarreddy@gmail.com?subject=${encodeURIComponent(formData.subject || "Portfolio Inquiry")}&body=${encodeURIComponent(formData.message)}`}
+                    className="underline text-red-300 hover:text-white mt-1 inline-block"
+                  >
+                    Click here to open email directly
+                  </a>
+                </div>
               </div>
             )}
 
             <button
               type="submit"
               disabled={status === "sending"}
-              className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-xl bg-[#55e6a5] hover:bg-[#43ca8f] text-[#141c27] font-bold text-sm shadow-md shadow-[#55e6a5]/20 hover:shadow-[#55e6a5]/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer disabled:opacity-70"
+              className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-xl bg-[#55e6a5] hover:bg-[#43ca8f] text-[#141c27] font-bold text-sm shadow-md shadow-[#55e6a5]/20 hover:shadow-[#55e6a5]/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              <FaPaperPlane className="text-xs" />
-              <span>{status === "sending" ? "Preparing Email..." : "Send Message via Email"}</span>
+              {status === "sending" ? (
+                <>
+                  <div className="size-4 border-2 border-[#141c27] border-t-transparent rounded-full animate-spin" />
+                  <span>Sending Message...</span>
+                </>
+              ) : (
+                <>
+                  <FaPaperPlane className="text-xs" />
+                  <span>Send Message</span>
+                </>
+              )}
             </button>
           </form>
         </div>
