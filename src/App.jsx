@@ -57,14 +57,14 @@ const App = () => {
     // Start cursor animation
     requestRef.current = requestAnimationFrame(animate);
 
-    // Trigger wipe-up animation after 2.5 seconds, then show main site after 3 seconds
+    // Trigger wipe-up animation after 10 seconds, then show main site after 10.5 seconds
     const wipeTimer = setTimeout(() => {
       setStartWipeUp(true);
-    }, 2500);
+    }, 10000);
 
     const timer = setTimeout(() => {
       setShowMainSite(true);
-    }, 3000);
+    }, 10500);
 
     const handleMouseMove = (e) => {
       mouseX.current = e.clientX;
@@ -116,12 +116,19 @@ const App = () => {
     };
   }, [isHovering]);
 
+  const handleSkip = () => {
+    setStartWipeUp(true);
+    setTimeout(() => {
+      setShowMainSite(true);
+    }, 500);
+  };
+
   return (
     <div className="bg-[#09101a] min-h-screen relative overflow-hidden">
       {!showMainSite && (
         // Apply wipe-up animation class conditionally
         <div className={`preloader-container ${startWipeUp ? 'wipe-up' : ''}`}>
-          <Background />
+          <Background onSkip={handleSkip} />
         </div>
       )}
       {showMainSite && (
