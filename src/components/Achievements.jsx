@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   FaAward,
-  FaTrophy,
   FaArrowUpRightFromSquare,
   FaPlay,
   FaXmark,
@@ -12,6 +11,7 @@ import {
   FaChevronRight,
   FaImages,
   FaBuildingColumns,
+  FaCircleInfo,
 } from "react-icons/fa6";
 
 const achievementsData = [
@@ -41,14 +41,14 @@ const achievementsData = [
     description:
       "Awarded the prestigious official Certificate of Appreciation by the Government of Andhra Pradesh Police Department for valuable software engineering contributions to state security initiatives, specifically the SafeStay guest verification portal and central law enforcement surveillance infrastructure.",
     contribution:
-      "Engineered backend microservices, REST APIs, and database architecture for the SafeStay portal and Centralised Drone Monitoring Portal (CDMP), automating hotel guest logging, enabling real-time verification, and enhancing public safety and security workflows statewide.",
+      "Spearheaded frontend engineering and intuitive, user-friendly interface design using React Native for the SafeStay platform. Integrated Firebase for real-time database management and guest verification logging, while actively conducting comprehensive quality assurance and functional testing to ensure operational reliability for state police deployment.",
     stack: [
-      "Python",
-      "FastAPI",
-      "React.js",
-      "PostgreSQL",
-      "REST APIs",
-      "SafeStay Portal",
+      "React Native",
+      "Firebase",
+      "UI/UX Design",
+      "QA & Testing",
+      "Real-Time DB",
+      "SafeStay App",
       "CDMP Drone Portal",
       "Law Enforcement Tech",
     ],
@@ -130,35 +130,12 @@ const achievementsData = [
     ctaText: "View Certificate",
     ctaType: "link",
   },
-  {
-    id: 5,
-    title: "Teckzite 2K25 Web Platform",
-    subtitle: "South India's Premier Techno-Management Fest",
-    primaryBadge: "Institutional Leadership",
-    metaText: "RGUKT Nuzvid",
-    secondaryBadge: "Production Web Team",
-    isSecondaryRed: false,
-    category: "platform",
-    categories: ["platform"],
-    type: "social",
-    description:
-      "Architected and deployed the central digital portal for RGUKT's massive annual fest, coordinating multi-event registrations and real-time scheduling for thousands of attendees.",
-    contribution:
-      "Developed high-traffic responsive registration interfaces, interactive landing pages, and responsive schedule dashboards using the MERN stack and Tailwind CSS.",
-    stack: ["React.js", "Tailwind CSS", "JavaScript", "MERN Stack", "UI/UX"],
-    thumbnail: "/tz.png",
-    mediaUrl: "/tz.png",
-    link: "https://teckzite.org",
-    ctaText: "Visit Platform",
-    ctaType: "link",
-  },
 ];
 
 const filterTabs = [
   { id: "all", label: "All Highlights", icon: FaLayerGroup },
   { id: "ai-gov", label: "AI & State Security", icon: FaShieldHalved },
   { id: "certificate", label: "Certifications", icon: FaAward },
-  { id: "platform", label: "Platforms & Tech", icon: FaTrophy },
 ];
 
 const Achievements = () => {
@@ -329,6 +306,17 @@ const Achievements = () => {
                   {item.description}
                 </p>
 
+                {/* Professional Note if available */}
+                {item.note && (
+                  <div className="flex items-start gap-2.5 bg-[#101824] border border-slate-700/60 rounded-xl p-3.5 mb-6 text-xs text-slate-300">
+                    <FaCircleInfo className="text-[#55e6a5] text-sm mt-0.5 flex-shrink-0" />
+                    <p className="leading-relaxed">
+                      <span className="font-semibold text-[#55e6a5]">Note: </span>
+                      {item.note}
+                    </p>
+                  </div>
+                )}
+
                 {/* My Engineering Contribution Inset Box */}
                 <div className="bg-[#09101a] border border-slate-700/60 rounded-xl p-4 sm:p-5 mb-6">
                   <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
@@ -354,16 +342,26 @@ const Achievements = () => {
                 {/* Action Button */}
                 <div>
                   {item.ctaType === "video" ? (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-[#e50914] hover:bg-[#c90712] text-white font-bold text-sm shadow-lg shadow-red-600/30 hover:shadow-red-600/40 hover:-translate-y-0.5 transition-all duration-200"
-                    >
-                      <FaPlay className="text-xs" />
-                      <span>{item.ctaText}</span>
-                      <FaArrowUpRightFromSquare className="text-[11px] ml-0.5" />
-                    </a>
+                    item.mediaUrl?.endsWith(".mp4") ? (
+                      <button
+                        onClick={() => openModal(item)}
+                        className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-[#55e6a5] hover:bg-[#43ca8f] text-[#141c27] font-bold text-sm shadow-md shadow-[#55e6a5]/20 hover:shadow-[#55e6a5]/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+                      >
+                        <FaPlay className="text-xs" />
+                        <span>{item.ctaText}</span>
+                      </button>
+                    ) : (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-[#e50914] hover:bg-[#c90712] text-white font-bold text-sm shadow-lg shadow-red-600/30 hover:shadow-red-600/40 hover:-translate-y-0.5 transition-all duration-200"
+                      >
+                        <FaPlay className="text-xs" />
+                        <span>{item.ctaText}</span>
+                        <FaArrowUpRightFromSquare className="text-[11px] ml-0.5" />
+                      </a>
+                    )
                   ) : item.ctaType === "gallery" ? (
                     <button
                       onClick={() => openModal(item, currentGalleryIdx)}
@@ -544,40 +542,52 @@ const Achievements = () => {
             {/* Modal Body */}
             <div className="p-4 overflow-y-auto flex flex-col items-center justify-center">
               {selectedMedia.type === "video" ? (
-                <div className="w-full aspect-video rounded-xl overflow-hidden relative group bg-black shadow-inner">
-                  <img
-                    src={selectedMedia.thumbnail}
-                    alt={selectedMedia.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/40 flex flex-col items-center justify-center p-6 text-center">
-                    <a
-                      href={selectedMedia.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="size-16 rounded-full bg-[#e50914] hover:bg-[#c90712] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-200 mb-4"
-                    >
-                      <FaPlay className="text-2xl ml-1" />
-                    </a>
-                    <h4 className="text-white font-bold text-lg mb-1.5">
-                      Watch ETV News Feature on YouTube
-                    </h4>
-                    <p className="text-slate-300 text-xs max-w-md mb-5 leading-relaxed">
-                      ETV Andhra Pradesh official news coverage on Project Dharma — AI-powered case
-                      management system for law enforcement.
-                    </p>
-                    <a
-                      href={selectedMedia.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#e50914] hover:bg-[#c90712] text-white font-bold text-sm shadow-lg shadow-red-600/40 hover:-translate-y-0.5 transition-all"
-                    >
-                      <FaPlay className="text-xs" />
-                      <span>Play on YouTube</span>
-                      <FaArrowUpRightFromSquare className="text-xs ml-1" />
-                    </a>
+                selectedMedia.mediaUrl?.endsWith(".mp4") ? (
+                  <div className="w-full max-h-[65vh] rounded-xl overflow-hidden bg-black shadow-inner flex flex-col items-center">
+                    <video
+                      src={selectedMedia.mediaUrl}
+                      controls
+                      autoPlay
+                      playsInline
+                      className="w-full max-h-[65vh] object-contain bg-black"
+                    />
                   </div>
-                </div>
+                ) : (
+                  <div className="w-full aspect-video rounded-xl overflow-hidden relative group bg-black shadow-inner">
+                    <img
+                      src={selectedMedia.thumbnail}
+                      alt={selectedMedia.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/40 flex flex-col items-center justify-center p-6 text-center">
+                      <a
+                        href={selectedMedia.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="size-16 rounded-full bg-[#e50914] hover:bg-[#c90712] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-200 mb-4"
+                      >
+                        <FaPlay className="text-2xl ml-1" />
+                      </a>
+                      <h4 className="text-white font-bold text-lg mb-1.5">
+                        Watch ETV News Feature on YouTube
+                      </h4>
+                      <p className="text-slate-300 text-xs max-w-md mb-5 leading-relaxed">
+                        ETV Andhra Pradesh official news coverage on Project Dharma — AI-powered case
+                        management system for law enforcement.
+                      </p>
+                      <a
+                        href={selectedMedia.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#e50914] hover:bg-[#c90712] text-white font-bold text-sm shadow-lg shadow-red-600/40 hover:-translate-y-0.5 transition-all"
+                      >
+                        <FaPlay className="text-xs" />
+                        <span>Play on YouTube</span>
+                        <FaArrowUpRightFromSquare className="text-xs ml-1" />
+                      </a>
+                    </div>
+                  </div>
+                )
               ) : selectedMedia.gallery ? (
                 /* Multi-Photo Gallery Modal View */
                 <div className="w-full flex flex-col items-center">
@@ -676,9 +686,16 @@ const Achievements = () => {
                     <p className="text-[#55e6a5] text-xs font-semibold uppercase tracking-wider">
                       {selectedMedia.primaryBadge} • {selectedMedia.metaText}
                     </p>
-                    <p className="text-slate-300 text-xs mt-1">
-                      {selectedMedia.contribution}
-                    </p>
+                    {selectedMedia.note ? (
+                      <p className="text-slate-300 text-xs mt-1.5 leading-relaxed max-w-2xl">
+                        <span className="text-[#55e6a5] font-semibold">Note: </span>
+                        {selectedMedia.note}
+                      </p>
+                    ) : (
+                      <p className="text-slate-300 text-xs mt-1">
+                        {selectedMedia.contribution}
+                      </p>
+                    )}
                   </div>
                   {selectedMedia.link && (
                     <a
@@ -687,7 +704,7 @@ const Achievements = () => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 px-4 py-2 bg-[#55e6a5] text-[#141c27] rounded-xl font-bold text-xs hover:bg-[#43ca8f] transition flex-shrink-0"
                     >
-                      <span>Open External Link</span>
+                      <span>{selectedMedia.mediaUrl?.endsWith(".mp4") ? "Open Video" : "Open External Link"}</span>
                       <FaArrowUpRightFromSquare className="text-xs" />
                     </a>
                   )}

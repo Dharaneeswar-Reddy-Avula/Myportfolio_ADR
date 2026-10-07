@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaArrowUpRightFromSquare,
   FaPlay,
@@ -6,6 +6,8 @@ import {
   FaLaptopCode,
   FaLayerGroup,
   FaShieldHalved,
+  FaCircleInfo,
+  FaXmark,
 } from "react-icons/fa6";
 
 const categories = [
@@ -24,11 +26,14 @@ const projectsData = [
     role: "Frontend & Web Team",
     description:
       "Official web platform for South India's premier annual techno-management fest at RGUKT, handling thousands of registrations and live schedules.",
+    note: "As the official fest platform is redesigned and redeployed annually for each edition, live deployment links are not permanently maintained. A recorded walkthrough demonstrating key features is provided.",
     stack: ["React.js", "Tailwind CSS", "JavaScript", "MERN"],
-    link: "https://teckzite.org",
+    link: "/tzvideo.mp4",
+    videoUrl: "/tzvideo.mp4",
     image: "/tz.png",
     isLogo: false,
-    ctaText: "Visit Portal",
+    ctaText: "Watch Feature",
+    isVideo: true,
   },
   {
     id: 2,
@@ -92,6 +97,23 @@ const projectsData = [
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [activeVideoModal, setActiveVideoModal] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setActiveVideoModal(null);
+    };
+    if (activeVideoModal) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeVideoModal]);
 
   const filteredProjects =
     activeCategory === "all"
@@ -119,7 +141,7 @@ const Projects = () => {
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition-all duration-200 ${
                 isActive
                   ? "bg-[#55e6a5] text-[#141c27] shadow-sm font-bold"
-                  : "text-slate-300 hover:text-white hover:bg-white/5"
+                  : "text-slate-300 hover:text-white hover:bg-white/5 cursor-pointer"
               }`}
             >
               <Icon className={isActive ? "text-[#141c27]" : "text-[#55e6a5]"} />
@@ -152,7 +174,12 @@ const Projects = () => {
             </div>
 
             {/* Compact Preview Image */}
-            <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-[#0c141f]">
+            <div
+              onClick={() => project.videoUrl && setActiveVideoModal(project)}
+              className={`relative h-44 sm:h-48 w-full overflow-hidden bg-[#0c141f] ${
+                project.videoUrl ? "cursor-pointer" : ""
+              }`}
+            >
               {project.isLogo ? (
                 <div className="w-full h-full flex items-center justify-center p-6 bg-gradient-to-br from-[#101925] via-[#142233] to-[#0c1520]">
                   <img
@@ -169,6 +196,15 @@ const Projects = () => {
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-[#182332] via-transparent to-transparent opacity-85 pointer-events-none" />
+
+              {/* Play Overlay Indicator for Video Projects */}
+              {project.videoUrl && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="size-12 rounded-full bg-[#55e6a5] text-[#141c27] flex items-center justify-center shadow-lg shadow-[#55e6a5]/40 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                    <FaPlay className="text-base ml-0.5" />
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Compact Card Content */}
@@ -180,6 +216,17 @@ const Projects = () => {
                 <p className="text-slate-300 text-xs md:text-sm leading-relaxed line-clamp-2">
                   {project.description}
                 </p>
+
+                {/* Professional Note (e.g. for dynamic annual fest portals) */}
+                {project.note && (
+                  <div className="mt-3 p-2.5 rounded-xl bg-[#101824]/90 border border-slate-700/70 flex items-start gap-2 text-slate-300 text-[11px] sm:text-xs leading-relaxed shadow-sm">
+                    <FaCircleInfo className="text-[#55e6a5] text-sm mt-0.5 flex-shrink-0" />
+                    <p>
+                      <span className="font-semibold text-[#55e6a5]">Note: </span>
+                      {project.note}
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Tech Stack Chips & Action Button in One Compact Footer Row */}
@@ -195,24 +242,110 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#55e6a5] hover:bg-[#43ca8f] text-[#141c27] font-bold text-xs shadow-sm hover:shadow transition-all duration-200 flex-shrink-0"
-                >
-                  <span>{project.ctaText}</span>
-                  {project.isVideo ? (
+                {project.videoUrl ? (
+                  <button
+                    type="button"
+                    onClick={() => setActiveVideoModal(project)}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#55e6a5] hover:bg-[#43ca8f] text-[#141c27] font-bold text-xs shadow-sm hover:shadow transition-all duration-200 flex-shrink-0 cursor-pointer"
+                  >
+                    <span>{project.ctaText}</span>
                     <FaPlay className="text-[10px]" />
-                  ) : (
-                    <FaArrowUpRightFromSquare className="text-[10px]" />
-                  )}
-                </a>
+                  </button>
+                ) : (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#55e6a5] hover:bg-[#43ca8f] text-[#141c27] font-bold text-xs shadow-sm hover:shadow transition-all duration-200 flex-shrink-0"
+                  >
+                    <span>{project.ctaText}</span>
+                    {project.isVideo ? (
+                      <FaPlay className="text-[10px]" />
+                    ) : (
+                      <FaArrowUpRightFromSquare className="text-[10px]" />
+                    )}
+                  </a>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Feature Video Modal */}
+      {activeVideoModal && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+          onClick={() => setActiveVideoModal(null)}
+        >
+          <div
+            className="bg-[#141c27] border border-slate-700/80 rounded-2xl w-full max-w-4xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-5 py-3.5 bg-[#101824] border-b border-slate-700/70">
+              <div className="flex items-center gap-2.5">
+                <span className="size-2.5 rounded-full bg-red-500/80 inline-block" />
+                <span className="size-2.5 rounded-full bg-yellow-500/80 inline-block" />
+                <span className="size-2.5 rounded-full bg-green-500/80 inline-block" />
+                <h3 className="text-white font-bold text-sm sm:text-base ml-2">
+                  {activeVideoModal.name} — Feature Walkthrough
+                </h3>
+                <span className="hidden sm:inline-block text-[10px] font-mono font-bold uppercase tracking-wider text-[#55e6a5] bg-[#55e6a5]/10 px-2 py-0.5 rounded border border-[#55e6a5]/30">
+                  {activeVideoModal.badge}
+                </span>
+              </div>
+              <button
+                onClick={() => setActiveVideoModal(null)}
+                className="size-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+                aria-label="Close video modal"
+              >
+                <FaXmark className="text-sm" />
+              </button>
+            </div>
+
+            {/* Video Player */}
+            <div className="relative bg-black flex items-center justify-center overflow-hidden flex-1 min-h-[260px] max-h-[65vh]">
+              <video
+                src={activeVideoModal.videoUrl || activeVideoModal.link}
+                controls
+                autoPlay
+                playsInline
+                className="w-full h-full max-h-[65vh] object-contain"
+              />
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 sm:p-5 bg-[#101824] border-t border-slate-700/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              {activeVideoModal.note ? (
+                <div className="flex items-start gap-2 text-slate-300 text-xs leading-relaxed max-w-2xl">
+                  <FaCircleInfo className="text-[#55e6a5] text-sm mt-0.5 flex-shrink-0" />
+                  <p>
+                    <span className="font-semibold text-[#55e6a5]">Note: </span>
+                    {activeVideoModal.note}
+                  </p>
+                </div>
+              ) : (
+                <p className="text-slate-400 text-xs">
+                  {activeVideoModal.description}
+                </p>
+              )}
+
+              <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
+                <a
+                  href={activeVideoModal.videoUrl || activeVideoModal.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition"
+                >
+                  <span>Open Full Video</span>
+                  <FaArrowUpRightFromSquare className="text-[10px]" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
